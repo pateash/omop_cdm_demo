@@ -1,0 +1,109 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: DEVICE_EXPOSURE_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PERSON_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_EXPOSURE_START_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_EXPOSURE_START_DATETIME
+    type: timestamp
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_EXPOSURE_END_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_EXPOSURE_END_DATETIME
+    type: timestamp
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_TYPE_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: UNIQUE_DEVICE_ID
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: QUANTITY
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PROVIDER_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_OCCURRENCE_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_DETAIL_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_SOURCE_VALUE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEVICE_SOURCE_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

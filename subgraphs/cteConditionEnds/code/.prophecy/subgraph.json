@@ -1,0 +1,361 @@
+{
+  "id" : "QpImT9I3HYF_5aQnr8s8T",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "omop"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        }, {
+          "name" : "database_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "l1_silver_omop531"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        } ]
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "S8sR_fxfm980FN-mTjkwv",
+      "slug" : "c",
+      "isStreaming" : false
+    }, {
+      "id" : "VdgKPsv_nugbfJV1XmoiY",
+      "slug" : "e0",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "McJS24PjzfagsvAF9ANGp",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "cteConditionEnds"
+  },
+  "connections" : [ {
+    "id" : "oXMdfCJEPsChB7Dpzr5jn",
+    "source" : "wOER3TkNFHg2H5TLFd-xO",
+    "sourcePort" : "NeSh2o5mrWEiDkBCQk2Av",
+    "target" : "p-C-_kN8KcPlrtaguNEIu",
+    "targetPort" : "vpW1RNiiL4IE9fnZB8uES"
+  }, {
+    "id" : "44bxY9OsMljtwx8dbjysO",
+    "source" : "p-C-_kN8KcPlrtaguNEIu",
+    "sourcePort" : "sXIy573thx8xlXAHRr9n5",
+    "target" : "IdKBjk453Ri0q0tXVeJUA",
+    "targetPort" : "HMr4X1SNHtYUsh4c8s5iJ"
+  }, {
+    "id" : "kjy1XbOme5kX8ZktwIGaB",
+    "source" : "QpImT9I3HYF_5aQnr8s8T",
+    "sourcePort" : "S8sR_fxfm980FN-mTjkwv",
+    "target" : "wOER3TkNFHg2H5TLFd-xO",
+    "targetPort" : "CaFiH8gnIx8knds3MFKTS"
+  }, {
+    "id" : "p_SuDFHW4GqN7TT1NpaW_",
+    "source" : "QpImT9I3HYF_5aQnr8s8T",
+    "sourcePort" : "VdgKPsv_nugbfJV1XmoiY",
+    "target" : "wOER3TkNFHg2H5TLFd-xO",
+    "targetPort" : "5v8fkfp1wv3T8SWeBfb_4"
+  }, {
+    "id" : "9xBjqeFDeT2H7xIP84EvK",
+    "source" : "IdKBjk453Ri0q0tXVeJUA",
+    "sourcePort" : "lypXhVeEvRTHcvqbhEc_9",
+    "target" : "QpImT9I3HYF_5aQnr8s8T",
+    "targetPort" : "McJS24PjzfagsvAF9ANGp"
+  } ],
+  "processes" : {
+    "wOER3TkNFHg2H5TLFd-xO" : {
+      "id" : "wOER3TkNFHg2H5TLFd-xO",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_person_id_and_condition_concept_id",
+        "slug" : "by_person_id_and_condition_concept_id",
+        "x" : 240,
+        "y" : 1780,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "CaFiH8gnIx8knds3MFKTS",
+          "slug" : "c"
+        }, {
+          "id" : "5v8fkfp1wv3T8SWeBfb_4",
+          "slug" : "e"
+        } ],
+        "outputs" : [ {
+          "id" : "NeSh2o5mrWEiDkBCQk2Av",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "e",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.person_id = e.person_id\nAND c.CONDITION_CONCEPT_ID = e.CONDITION_CONCEPT_ID\nAND e.end_date >= c.CONDITION_START_DATETIME"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "CONDITION_OCCURRENCE_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.CONDITION_OCCURRENCE_ID"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.person_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "CONDITION_CONCEPT_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.CONDITION_CONCEPT_ID"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "CONDITION_START_DATETIME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.CONDITION_START_DATETIME"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "CONDITION_END_DATETIME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.CONDITION_END_DATETIME"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "end_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "e.end_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W",
+          "alias" : "c",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "5v8fkfp1wv3T8SWeBfb_4$$wjMPUnFbhA9fzMsiyDwNt$$K9QPDkfMlspuFNtKQS9eZ",
+          "alias" : "e",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##person_id", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##CONDITION_CONCEPT_ID", "5v8fkfp1wv3T8SWeBfb_4$$wjMPUnFbhA9fzMsiyDwNt$$K9QPDkfMlspuFNtKQS9eZ##CONDITION_CONCEPT_ID", "5v8fkfp1wv3T8SWeBfb_4$$wjMPUnFbhA9fzMsiyDwNt$$K9QPDkfMlspuFNtKQS9eZ##end_date", "5v8fkfp1wv3T8SWeBfb_4$$wjMPUnFbhA9fzMsiyDwNt$$K9QPDkfMlspuFNtKQS9eZ##person_id", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##CONDITION_START_DATETIME", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##CONDITION_OCCURRENCE_ID", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##person_id", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##CONDITION_CONCEPT_ID", "5v8fkfp1wv3T8SWeBfb_4$$wjMPUnFbhA9fzMsiyDwNt$$K9QPDkfMlspuFNtKQS9eZ##end_date", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##CONDITION_START_DATETIME", "CaFiH8gnIx8knds3MFKTS$$Xo1HyhaPEpJDUK8jy-me8$$W1f_dLMI3SQL6Tm_0M61W##CONDITION_END_DATETIME" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "c"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    },
+    "p-C-_kN8KcPlrtaguNEIu" : {
+      "id" : "p-C-_kN8KcPlrtaguNEIu",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "Aggregate_1",
+        "slug" : "Aggregate_1",
+        "x" : 400,
+        "y" : 1780,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "vpW1RNiiL4IE9fnZB8uES",
+          "slug" : "by_person_id_and_condition_concept_id"
+        } ],
+        "outputs" : [ {
+          "id" : "sXIy573thx8xlXAHRr9n5",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "era_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "min(end_date)"
+          },
+          "description" : "",
+          "_row_id" : "c_285"
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "vpW1RNiiL4IE9fnZB8uES$$hkc77Wi73GrypW7uu8kdk$$u9a3Ho8iuS8jFO3ItgSwt##end_date", "vpW1RNiiL4IE9fnZB8uES$$hkc77Wi73GrypW7uu8kdk$$u9a3Ho8iuS8jFO3ItgSwt##CONDITION_OCCURRENCE_ID", "vpW1RNiiL4IE9fnZB8uES$$hkc77Wi73GrypW7uu8kdk$$u9a3Ho8iuS8jFO3ItgSwt##CONDITION_CONCEPT_ID", "vpW1RNiiL4IE9fnZB8uES$$hkc77Wi73GrypW7uu8kdk$$u9a3Ho8iuS8jFO3ItgSwt##CONDITION_START_DATETIME", "vpW1RNiiL4IE9fnZB8uES$$hkc77Wi73GrypW7uu8kdk$$u9a3Ho8iuS8jFO3ItgSwt##person_id" ],
+        "groupBy" : [ {
+          "target" : "CONDITION_OCCURRENCE_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CONDITION_OCCURRENCE_ID"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "CONDITION_CONCEPT_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CONDITION_CONCEPT_ID"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "CONDITION_START_DATETIME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CONDITION_START_DATETIME"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    },
+    "IdKBjk453Ri0q0tXVeJUA" : {
+      "id" : "IdKBjk453Ri0q0tXVeJUA",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "condition_era_projection",
+        "slug" : "condition_era_projection",
+        "x" : 580,
+        "y" : 1780,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "HMr4X1SNHtYUsh4c8s5iJ",
+          "slug" : "Aggregate_1"
+        } ],
+        "outputs" : [ {
+          "id" : "lypXhVeEvRTHcvqbhEc_9",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_id"
+          },
+          "description" : "",
+          "_row_id" : "5197873999653949213"
+        }, {
+          "target" : "CONDITION_CONCEPT_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CONDITION_CONCEPT_ID"
+          },
+          "description" : "",
+          "_row_id" : "8086539631321965720"
+        }, {
+          "target" : "CONDITION_START_DATETIME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CONDITION_START_DATETIME"
+          },
+          "description" : "",
+          "_row_id" : "1114841446729063830"
+        }, {
+          "target" : "era_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "era_end_datetime"
+          },
+          "description" : "",
+          "_row_id" : "1890569797654317399"
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "HMr4X1SNHtYUsh4c8s5iJ$$985E24vU1SwTx7pE8LMQ9$$ylDWVDZZU9A8YsV-Le8gk##CONDITION_START_DATETIME", "HMr4X1SNHtYUsh4c8s5iJ$$985E24vU1SwTx7pE8LMQ9$$ylDWVDZZU9A8YsV-Le8gk##CONDITION_CONCEPT_ID", "HMr4X1SNHtYUsh4c8s5iJ$$985E24vU1SwTx7pE8LMQ9$$ylDWVDZZU9A8YsV-Le8gk##person_id", "HMr4X1SNHtYUsh4c8s5iJ$$985E24vU1SwTx7pE8LMQ9$$ylDWVDZZU9A8YsV-Le8gk##era_end_datetime" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    }
+  }
+}

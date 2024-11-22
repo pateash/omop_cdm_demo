@@ -1,0 +1,74 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: CDM_SOURCE_NAME
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CDM_SOURCE_ABBREVIATION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CDM_HOLDER
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: SOURCE_DESCRIPTION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: SOURCE_DOCUMENTATION_REFERENCE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CDM_ETL_REFERENCE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: SOURCE_RELEASE_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CDM_RELEASE_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CDM_VERSION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VOCABULARY_VERSION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

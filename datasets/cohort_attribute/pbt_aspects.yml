@@ -1,0 +1,53 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: COHORT_DEFINITION_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: SUBJECT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: COHORT_START_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: COHORT_END_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ATTRIBUTE_DEFINITION_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VALUE_AS_NUMBER
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VALUE_AS_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

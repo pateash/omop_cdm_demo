@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: cohort_definition_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: subject_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: cohort_start_date
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: cohort_end_date
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

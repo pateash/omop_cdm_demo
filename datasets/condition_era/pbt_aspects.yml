@@ -1,0 +1,46 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: CONDITION_ERA_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PERSON_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_ERA_START_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_ERA_END_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_OCCURRENCE_COUNT
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

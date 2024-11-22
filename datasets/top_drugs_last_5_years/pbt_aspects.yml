@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: DRUG_CONCEPT_NAME
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: year_of_era
+    type: integer
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: drug_count
+    type: long
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

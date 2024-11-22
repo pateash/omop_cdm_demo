@@ -1,0 +1,889 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years",
+      "hasApplication" : true
+    },
+    "language" : "python",
+    "fabricId" : "13781",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "nathandemoprophecyioteam.sampleomop.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "omop"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "database_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "l1_silver_omop531"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "l62_drug_analysis_topdrugsprescribedinthepast5years",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "_Gs_8K_yo3imOXhr_qWti$$1w_krAZVgSjqho164pyR8",
+    "source" : "o56aTR93xpJduBJBhfA5y$$VaR3SOs4jQnSN0EUQrY94",
+    "sourcePort" : "jNRYMqFhQuc-9jt__p1I_$$t5KXG2bEy6mWAVKo7vnVO",
+    "target" : "Y89Z3qd1V8jsdV0J4yIMS$$wRmXMXCBeejdNR__C2lIM",
+    "targetPort" : "4bIABsEkhFA1NWw89t_6R$$LDZyccvw7TVcKN98SBIYf"
+  }, {
+    "id" : "WL-pxeKXyCfzzgQLJL1ev$$IDSDhxRPQOcFXCdZt81aI",
+    "source" : "Y89Z3qd1V8jsdV0J4yIMS$$wRmXMXCBeejdNR__C2lIM",
+    "sourcePort" : "wrw5gbn7gpQ6bRHO4KLfR$$_Ek0dPRQY23iXPr8-OEzm",
+    "target" : "f88l3jXCCuO4SNqlFBY8j$$4PWyCKhbYKBtP1TV060o5",
+    "targetPort" : "4Wv1j50Ly53SEzsl8Xv1t$$yIfZRIOm9EzV0D7WHUBRH"
+  }, {
+    "id" : "js_3XoTPi3IT_cgBGvr7I$$6drp54h31zVYYAQgHZnua",
+    "source" : "f88l3jXCCuO4SNqlFBY8j$$4PWyCKhbYKBtP1TV060o5",
+    "sourcePort" : "UsMUkA0zwh5jGxzgAdzCM$$yfhGiXpOvNDV0zX9szyGt",
+    "target" : "1emlRCeMs1NPM40G8Hgrx$$zQleShk6dITkfrzI053v_",
+    "targetPort" : "meTMoujdcUcMLO6NN_7Hu$$UiN_Kq5NdipgOCGoJOjB4"
+  }, {
+    "id" : "oZ5d_otlRcPewlWKVaENV$$_BLIMjAvN_-kZOg4jIdgZ",
+    "source" : "1emlRCeMs1NPM40G8Hgrx$$zQleShk6dITkfrzI053v_",
+    "sourcePort" : "ymiqQ-t0t_ykYuAs66d7-$$6fKIhquMQLm8J-mDUjqzK",
+    "target" : "QXtPzFfOTHRPsSoHaRBhV$$eHzDJN5h0KGplthuIUn6U",
+    "targetPort" : "gAO8mJ63Pk3_K8KOzKsWI$$jfoEZcS9jbCCDdpGZRT97"
+  }, {
+    "id" : "CAVnFwG0dUaYVrec_Eek3$$LDRUvPIps5dtETCQIu-Vt",
+    "source" : "QXtPzFfOTHRPsSoHaRBhV$$eHzDJN5h0KGplthuIUn6U",
+    "sourcePort" : "QGZqBxvifj0LsLyR37HVE$$Uk1kbaxwi4sYD6NCBn4Cg",
+    "target" : "EBfKQ2y0rb1Qdxx9hq4QB$$BcfLfZD0SZQNidjCf-mVM",
+    "targetPort" : "qYmUWThwpqYShxdJ3QnHh$$FdiPHG2q6ygNoxgk-B_-S"
+  }, {
+    "id" : "-fKbNCsQ2POzgSneyCTpn$$LUVbssXkw5GiBzoFssfgR",
+    "source" : "EBfKQ2y0rb1Qdxx9hq4QB$$BcfLfZD0SZQNidjCf-mVM",
+    "sourcePort" : "wqgFEsFDnvyUkRTpLhTPc$$rsTNKPH17Snj6E6_clK4f",
+    "target" : "P7s1wfseadg529W6GNJk-$$HYATLoFTxSb6CBVg1w24Q",
+    "targetPort" : "pvOUT2KcBvYdgvWVbbmtc$$Sar3Xs56moYPF38ZUMupq"
+  }, {
+    "id" : "rUMZZBAo81ODgjvZpsp4U",
+    "source" : "4xmtJ8zSg3WgXLRLVF1rq$$Di0WWkgU4W_q1eO0_q8n6",
+    "sourcePort" : "FsVACyTcM8wFMoFuK7WXQ$$qgSPH5nzVj108SLiyxim3",
+    "target" : "Y89Z3qd1V8jsdV0J4yIMS$$wRmXMXCBeejdNR__C2lIM",
+    "targetPort" : "WiWPXJTnSvkkS5pMvZBBv$$4SEYYKA_7wa5E9HItGCDh"
+  } ],
+  "processes" : {
+    "o56aTR93xpJduBJBhfA5y$$VaR3SOs4jQnSN0EUQrY94" : {
+      "id" : "o56aTR93xpJduBJBhfA5y$$VaR3SOs4jQnSN0EUQrY94",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "concept",
+        "slug" : "concept",
+        "x" : -400,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jNRYMqFhQuc-9jt__p1I_$$t5KXG2bEy6mWAVKo7vnVO",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/concept"
+      }
+    },
+    "Y89Z3qd1V8jsdV0J4yIMS$$wRmXMXCBeejdNR__C2lIM" : {
+      "id" : "Y89Z3qd1V8jsdV0J4yIMS$$wRmXMXCBeejdNR__C2lIM",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_drug_concept_id",
+        "slug" : "by_drug_concept_id",
+        "x" : -180,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WiWPXJTnSvkkS5pMvZBBv$$4SEYYKA_7wa5E9HItGCDh",
+          "slug" : "t",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "drug_era_id",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "person_id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_concept_id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_era_start_datetime",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_era_end_datetime",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_exposure_count",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "gap_days",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "4bIABsEkhFA1NWw89t_6R$$LDZyccvw7TVcKN98SBIYf",
+          "slug" : "c",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "CONCEPT_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONCEPT_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DOMAIN_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "VOCABULARY_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONCEPT_CLASS_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "STANDARD_CONCEPT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONCEPT_CODE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "VALID_START_DATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "VALID_END_DATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "INVALID_REASON",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "wrw5gbn7gpQ6bRHO4KLfR$$_Ek0dPRQY23iXPr8-OEzm",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "c",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.CONCEPT_ID = t.DRUG_CONCEPT_ID"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "year_of_era",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "extract(year FROM t.drug_era_start_datetime)"
+          },
+          "description" : "",
+          "_row_id" : "c_112"
+        }, {
+          "target" : "DRUG_CONCEPT_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "t.DRUG_CONCEPT_ID"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "DRUG_CONCEPT_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "c.CONCEPT_NAME"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "WiWPXJTnSvkkS5pMvZBBv$$4SEYYKA_7wa5E9HItGCDh",
+          "alias" : "t",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "4bIABsEkhFA1NWw89t_6R$$LDZyccvw7TVcKN98SBIYf",
+          "alias" : "c",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "4bIABsEkhFA1NWw89t_6R$$LDZyccvw7TVcKN98SBIYf##CONCEPT_ID", "WiWPXJTnSvkkS5pMvZBBv$$4SEYYKA_7wa5E9HItGCDh##DRUG_CONCEPT_ID", "4bIABsEkhFA1NWw89t_6R$$LDZyccvw7TVcKN98SBIYf##CONCEPT_NAME", "WiWPXJTnSvkkS5pMvZBBv$$4SEYYKA_7wa5E9HItGCDh##DRUG_CONCEPT_ID" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "t"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "P7s1wfseadg529W6GNJk-$$HYATLoFTxSb6CBVg1w24Q" : {
+      "id" : "P7s1wfseadg529W6GNJk-$$HYATLoFTxSb6CBVg1w24Q",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "top_drugs_last_5_years",
+        "slug" : "top_drugs_last_5_years",
+        "x" : 660,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "pvOUT2KcBvYdgvWVbbmtc$$Sar3Xs56moYPF38ZUMupq",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "DRUG_CONCEPT_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "year_of_era",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/top_drugs_last_5_years"
+      }
+    },
+    "4xmtJ8zSg3WgXLRLVF1rq$$Di0WWkgU4W_q1eO0_q8n6" : {
+      "id" : "4xmtJ8zSg3WgXLRLVF1rq$$Di0WWkgU4W_q1eO0_q8n6",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "drug_era",
+        "slug" : "drug_era",
+        "x" : -400,
+        "y" : -260,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads the 'drug_era' table from the specified catalog and database.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "FsVACyTcM8wFMoFuK7WXQ$$qgSPH5nzVj108SLiyxim3",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/drug_era"
+      }
+    },
+    "EBfKQ2y0rb1Qdxx9hq4QB$$BcfLfZD0SZQNidjCf-mVM" : {
+      "id" : "EBfKQ2y0rb1Qdxx9hq4QB$$BcfLfZD0SZQNidjCf-mVM",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "by_year_and_drug_count_desc_nulls_first",
+        "slug" : "by_year_and_drug_count_desc_nulls_first",
+        "x" : 460,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "qYmUWThwpqYShxdJ3QnHh$$FdiPHG2q6ygNoxgk-B_-S",
+          "slug" : "drug_count_by_concept_and_year_projection",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "DRUG_CONCEPT_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "year_of_era",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "wqgFEsFDnvyUkRTpLhTPc$$rsTNKPH17Snj6E6_clK4f",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "qYmUWThwpqYShxdJ3QnHh$$FdiPHG2q6ygNoxgk-B_-S##year_of_era", "qYmUWThwpqYShxdJ3QnHh$$FdiPHG2q6ygNoxgk-B_-S##drug_count" ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "sql",
+            "expression" : "year_of_era"
+          },
+          "sortType" : "asc"
+        }, {
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_count"
+          },
+          "sortType" : "desc_nulls_first"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "f88l3jXCCuO4SNqlFBY8j$$4PWyCKhbYKBtP1TV060o5" : {
+      "id" : "f88l3jXCCuO4SNqlFBY8j$$4PWyCKhbYKBtP1TV060o5",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "filter_by_recent_years",
+        "slug" : "filter_by_recent_years",
+        "x" : -20,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "4Wv1j50Ly53SEzsl8Xv1t$$yIfZRIOm9EzV0D7WHUBRH",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "year_of_era",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "UsMUkA0zwh5jGxzgAdzCM$$yfhGiXpOvNDV0zX9szyGt",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "4Wv1j50Ly53SEzsl8Xv1t$$yIfZRIOm9EzV0D7WHUBRH##year_of_era" ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "year(current_date()) - year_of_era <= 5"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "QXtPzFfOTHRPsSoHaRBhV$$eHzDJN5h0KGplthuIUn6U" : {
+      "id" : "QXtPzFfOTHRPsSoHaRBhV$$eHzDJN5h0KGplthuIUn6U",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "drug_count_by_concept_and_year_projection",
+        "slug" : "drug_count_by_concept_and_year_projection",
+        "x" : 300,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "gAO8mJ63Pk3_K8KOzKsWI$$jfoEZcS9jbCCDdpGZRT97",
+          "slug" : "drug_count_by_concept_and_year",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "DRUG_CONCEPT_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "year_of_era",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "drug_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "QGZqBxvifj0LsLyR37HVE$$Uk1kbaxwi4sYD6NCBn4Cg",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "DRUG_CONCEPT_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DRUG_CONCEPT_NAME"
+          },
+          "description" : ""
+        }, {
+          "target" : "DRUG_CONCEPT_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DRUG_CONCEPT_ID"
+          },
+          "description" : ""
+        }, {
+          "target" : "year_of_era",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "year_of_era"
+          },
+          "description" : ""
+        }, {
+          "target" : "drug_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_count"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "gAO8mJ63Pk3_K8KOzKsWI$$jfoEZcS9jbCCDdpGZRT97##year_of_era", "gAO8mJ63Pk3_K8KOzKsWI$$jfoEZcS9jbCCDdpGZRT97##drug_count", "gAO8mJ63Pk3_K8KOzKsWI$$jfoEZcS9jbCCDdpGZRT97##DRUG_CONCEPT_NAME", "gAO8mJ63Pk3_K8KOzKsWI$$jfoEZcS9jbCCDdpGZRT97##DRUG_CONCEPT_ID" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "1emlRCeMs1NPM40G8Hgrx$$zQleShk6dITkfrzI053v_" : {
+      "id" : "1emlRCeMs1NPM40G8Hgrx$$zQleShk6dITkfrzI053v_",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "drug_count_by_concept_and_year",
+        "slug" : "drug_count_by_concept_and_year",
+        "x" : 140,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "meTMoujdcUcMLO6NN_7Hu$$UiN_Kq5NdipgOCGoJOjB4",
+          "slug" : "filter_by_recent_years",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "year_of_era",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_CONCEPT_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "ymiqQ-t0t_ykYuAs66d7-$$6fKIhquMQLm8J-mDUjqzK",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "drug_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "count(1)"
+          },
+          "description" : "",
+          "_row_id" : "c_55"
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "meTMoujdcUcMLO6NN_7Hu$$UiN_Kq5NdipgOCGoJOjB4##DRUG_CONCEPT_NAME", "meTMoujdcUcMLO6NN_7Hu$$UiN_Kq5NdipgOCGoJOjB4##year_of_era", "meTMoujdcUcMLO6NN_7Hu$$UiN_Kq5NdipgOCGoJOjB4##DRUG_CONCEPT_ID" ],
+        "groupBy" : [ {
+          "target" : "DRUG_CONCEPT_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DRUG_CONCEPT_NAME"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "year_of_era",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "year_of_era"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "DRUG_CONCEPT_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DRUG_CONCEPT_ID"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

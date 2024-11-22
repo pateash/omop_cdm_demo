@@ -1,0 +1,46 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: RELATIONSHIP_ID
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: RELATIONSHIP_NAME
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: IS_HIERARCHICAL
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DEFINES_ANCESTRY
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: REVERSE_RELATIONSHIP_ID
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: RELATIONSHIP_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

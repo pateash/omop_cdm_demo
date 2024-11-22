@@ -1,0 +1,370 @@
+{
+  "id" : "WVI0LfzUY9bp5AASNXkqv",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "omop"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        }, {
+          "name" : "database_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "l1_silver_omop531"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        } ]
+      }
+    },
+    "comment" : "Figure out when each time someone stops taking a drug, based on when they started and the type of event (like the end of a prescription)."
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "JfGHSjrPhlfhfFku3PimN",
+      "slug" : "dt",
+      "isStreaming" : false
+    }, {
+      "id" : "yBIZnBRX1pirm5UzpoxLk",
+      "slug" : "e0",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "XwoUws3LSBm29xSPbi4fY",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "cteDrugExposureEnds"
+  },
+  "connections" : [ {
+    "id" : "iA0MkLTFkZboMT3b79q95",
+    "source" : "OfNKEZh_TAWfJS_Pb3vLF",
+    "sourcePort" : "TxHViD-6IWEeLhmJCtXNQ",
+    "target" : "ei5KM-OdRfj0Vi-__2zQu",
+    "targetPort" : "YlpSMtBbtHs7sU3FWWaJf"
+  }, {
+    "id" : "e9WxSq99FWduzG8XxdvCD",
+    "source" : "ei5KM-OdRfj0Vi-__2zQu",
+    "sourcePort" : "HoNmg9s42NGzf6yvhLWwS",
+    "target" : "KaTBMZy-SPtX8-SWKA0s0",
+    "targetPort" : "RL8KxzvNpGU1zB0My3ZNp"
+  }, {
+    "id" : "Q3ArhkkBJEH15i-ho1FLT",
+    "source" : "WVI0LfzUY9bp5AASNXkqv",
+    "sourcePort" : "JfGHSjrPhlfhfFku3PimN",
+    "target" : "OfNKEZh_TAWfJS_Pb3vLF",
+    "targetPort" : "ZHoNX-PEIGYcAoxTWl7pW"
+  }, {
+    "id" : "xWRl95GBpuqA5SeutcErv",
+    "source" : "WVI0LfzUY9bp5AASNXkqv",
+    "sourcePort" : "yBIZnBRX1pirm5UzpoxLk",
+    "target" : "OfNKEZh_TAWfJS_Pb3vLF",
+    "targetPort" : "kUI_SUBX1QSCCaLXYEGkV"
+  }, {
+    "id" : "5YYqJeqWTbh2hfZlAGK5R",
+    "source" : "KaTBMZy-SPtX8-SWKA0s0",
+    "sourcePort" : "9oZw8doqQPj9NtGpbospE",
+    "target" : "WVI0LfzUY9bp5AASNXkqv",
+    "targetPort" : "XwoUws3LSBm29xSPbi4fY"
+  } ],
+  "processes" : {
+    "OfNKEZh_TAWfJS_Pb3vLF" : {
+      "id" : "OfNKEZh_TAWfJS_Pb3vLF",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_person_and_ingredient_concept_id",
+        "slug" : "by_person_and_ingredient_concept_id",
+        "x" : 360,
+        "y" : 2200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ZHoNX-PEIGYcAoxTWl7pW",
+          "slug" : "dt"
+        }, {
+          "id" : "kUI_SUBX1QSCCaLXYEGkV",
+          "slug" : "e"
+        } ],
+        "outputs" : [ {
+          "id" : "TxHViD-6IWEeLhmJCtXNQ",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "e",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "e.person_id = dt.person_id\nAND dt.ingredient_concept_id = e.ingredient_concept_id\nAND e.end_datetime >= dt.drug_exposure_start_datetime"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "drug_exposure_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "dt.drug_exposure_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "dt.person_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "ingredient_concept_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "dt.ingredient_concept_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "drug_exposure_start_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "dt.drug_exposure_start_datetime"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "days_supply",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "dt.days_supply"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "drug_exposure_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "dt.drug_exposure_end_datetime"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "e.end_datetime"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic",
+          "alias" : "dt",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "kUI_SUBX1QSCCaLXYEGkV$$klRaCXgI81QOybyX6EjEk$$HKUv8ycczGw9AXr7S5UMO",
+          "alias" : "e",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##drug_exposure_start_datetime", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##person_id", "kUI_SUBX1QSCCaLXYEGkV$$klRaCXgI81QOybyX6EjEk$$HKUv8ycczGw9AXr7S5UMO##person_id", "kUI_SUBX1QSCCaLXYEGkV$$klRaCXgI81QOybyX6EjEk$$HKUv8ycczGw9AXr7S5UMO##end_datetime", "kUI_SUBX1QSCCaLXYEGkV$$klRaCXgI81QOybyX6EjEk$$HKUv8ycczGw9AXr7S5UMO##ingredient_concept_id", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##ingredient_concept_id", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##drug_exposure_start_datetime", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##drug_exposure_end_datetime", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##person_id", "kUI_SUBX1QSCCaLXYEGkV$$klRaCXgI81QOybyX6EjEk$$HKUv8ycczGw9AXr7S5UMO##end_datetime", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##ingredient_concept_id", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##days_supply", "ZHoNX-PEIGYcAoxTWl7pW$$zrfA6yQH9WOY_hearWgjJ$$ctlj79BUwR4QSx8hQ9Iic##drug_exposure_id" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "dt"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    },
+    "ei5KM-OdRfj0Vi-__2zQu" : {
+      "id" : "ei5KM-OdRfj0Vi-__2zQu",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "sub_exposure_end_by_person_and_ingredient",
+        "slug" : "sub_exposure_end_by_person_and_ingredient",
+        "x" : 520,
+        "y" : 2200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "YlpSMtBbtHs7sU3FWWaJf",
+          "slug" : "by_person_and_ingredient_concept_id"
+        } ],
+        "outputs" : [ {
+          "id" : "HoNmg9s42NGzf6yvhLWwS",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "_row_id" : "c_453",
+          "target" : "drug_sub_exposure_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "min(end_datetime)"
+          },
+          "description" : ""
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "YlpSMtBbtHs7sU3FWWaJf$$p-VA-_T-l-gkAeyXJgP00$$hiXHHHwv3zumkmxZ1BTrF##drug_exposure_start_datetime", "YlpSMtBbtHs7sU3FWWaJf$$p-VA-_T-l-gkAeyXJgP00$$hiXHHHwv3zumkmxZ1BTrF##end_datetime", "YlpSMtBbtHs7sU3FWWaJf$$p-VA-_T-l-gkAeyXJgP00$$hiXHHHwv3zumkmxZ1BTrF##person_id", "YlpSMtBbtHs7sU3FWWaJf$$p-VA-_T-l-gkAeyXJgP00$$hiXHHHwv3zumkmxZ1BTrF##ingredient_concept_id", "YlpSMtBbtHs7sU3FWWaJf$$p-VA-_T-l-gkAeyXJgP00$$hiXHHHwv3zumkmxZ1BTrF##drug_exposure_id" ],
+        "groupBy" : [ {
+          "target" : "drug_exposure_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_exposure_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "ingredient_concept_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ingredient_concept_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "drug_exposure_start_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_exposure_start_datetime"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    },
+    "KaTBMZy-SPtX8-SWKA0s0" : {
+      "id" : "KaTBMZy-SPtX8-SWKA0s0",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "drug_exposure_details",
+        "slug" : "drug_exposure_details",
+        "x" : 660,
+        "y" : 2200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "RL8KxzvNpGU1zB0My3ZNp",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "9oZw8doqQPj9NtGpbospE",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_id"
+          },
+          "description" : "",
+          "_row_id" : "3875657600630021567"
+        }, {
+          "target" : "drug_concept_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ingredient_concept_id"
+          },
+          "description" : "",
+          "_row_id" : "8634746058493088698"
+        }, {
+          "target" : "drug_exposure_start_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_exposure_start_datetime"
+          },
+          "description" : "",
+          "_row_id" : "1839369349181158186"
+        }, {
+          "target" : "drug_sub_exposure_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_sub_exposure_end_datetime"
+          },
+          "description" : "",
+          "_row_id" : "8623034754239854593"
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "RL8KxzvNpGU1zB0My3ZNp$$TfTEG1cI-s6vpmCjLgv94$$2uNWCkM7pILyy1lc9Ha6H##drug_sub_exposure_end_datetime", "RL8KxzvNpGU1zB0My3ZNp$$TfTEG1cI-s6vpmCjLgv94$$2uNWCkM7pILyy1lc9Ha6H##ingredient_concept_id", "RL8KxzvNpGU1zB0My3ZNp$$TfTEG1cI-s6vpmCjLgv94$$2uNWCkM7pILyy1lc9Ha6H##drug_exposure_start_datetime", "RL8KxzvNpGU1zB0My3ZNp$$TfTEG1cI-s6vpmCjLgv94$$2uNWCkM7pILyy1lc9Ha6H##person_id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    }
+  }
+}

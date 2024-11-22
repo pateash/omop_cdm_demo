@@ -1,0 +1,25 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: CONCEPT_CLASS_ID
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONCEPT_CLASS_NAME
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONCEPT_CLASS_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

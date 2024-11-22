@@ -1,0 +1,39 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: ATTRIBUTE_DEFINITION_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ATTRIBUTE_NAME
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ATTRIBUTE_DESCRIPTION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ATTRIBUTE_TYPE_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ATTRIBUTE_SYNTAX
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

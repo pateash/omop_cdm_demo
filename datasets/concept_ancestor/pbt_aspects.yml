@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: ANCESTOR_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DESCENDANT_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: MIN_LEVELS_OF_SEPARATION
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: MAX_LEVELS_OF_SEPARATION
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

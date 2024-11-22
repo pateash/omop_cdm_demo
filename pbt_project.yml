@@ -1,0 +1,1138 @@
+name: sample_OMOP
+description: Common Data Model for observational research based on OMOP 5.31 CDM
+version: '1.0'
+author: nathan+demo@prophecy.io
+language: python
+buildSystem: ''
+buildSystemDetails:
+  artefactID: sampleomop
+  parentArtefactID: nathandemoprophecyioteam
+  buildSystem: wheel
+  author: null
+  createdAt: '2024-03-22 23:23:23'
+pipelines:
+  pipelines/bronze_ingest:
+    name: L1_data-ingest
+    description: "Ingest synthetic data (generated with synthea) into Delta Lake bronze\
+      \ layer. \n\nThis pipeline will iteratively ingest data from multiple CSV source\
+      \ paths and into respective target tables from either a metadata table or dataframe. "
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-03-22 23:23:23'
+    datasets:
+      inputs:
+      - datasets/configured_source
+      outputs:
+      - datasets/configured_target
+    subgraphs: []
+    dependencies: {}
+  pipelines/L1_cdm_setup:
+    name: L3-1_omop-vocab-setup_load
+    description: "Create vocabulary tables for OMOP5.3.1 Common Data Model (CDM)\n\
+      \nWill iteratively ingest CSV files from s3://hls-eng-data-public/data/rwe/omop-vocabs/\
+      \ and write into "
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-03-25 23:21:54'
+    datasets:
+      inputs:
+      - datasets/L1_source
+      outputs:
+      - datasets/L1_target
+    subgraphs: []
+    dependencies: {}
+  pipelines/L2_omop531-cdm-setup:
+    name: L2_omop531-cdm-setup
+    description: Setup vocabulary tables for Common Data Model (CDM)
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-03-30 19:36:09'
+    datasets:
+      inputs: []
+      outputs:
+      - datasets/attribute_definition
+      - datasets/care_site
+      - datasets/cdm_source
+      - datasets/cohort
+      - datasets/cohort_attribute
+      - datasets/cohort_definition
+      - datasets/concept
+      - datasets/concept_ancestor
+      - datasets/concept_class
+      - datasets/concept_relationship
+      - datasets/concept_synonym
+      - datasets/condition_era
+      - datasets/condition_occurence
+      - datasets/cost
+      - datasets/death
+      - datasets/device_exposure
+      - datasets/domain
+      - datasets/dose_era
+      - datasets/drug_era
+      - datasets/drug_exposure
+      - datasets/drug_strength
+      - datasets/fact_relationship
+      - datasets/location
+      - datasets/measurement
+      - datasets/metadata
+      - datasets/note
+      - datasets/note_nlp
+      - datasets/observation
+      - datasets/observation_period
+      - datasets/payer_plan_period
+      - datasets/person
+      - datasets/procedure_occurence
+      - datasets/provider
+      - datasets/relationship
+      - datasets/source_to_concept
+      - datasets/specimen
+      - datasets/visit_detail
+      - datasets/visit_occurence
+      - datasets/vocabulary
+    subgraphs: []
+    dependencies: {}
+  pipelines/L3-2_omop-vocab-setup_create_vocab_map_tables:
+    name: L3-2_omop-vocab-setup_create_vocab_map_tables
+    description: Create vocabulary mapping tables
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-03-30 21:34:12'
+    datasets:
+      inputs:
+      - datasets/concept
+      - datasets/concept_relationship
+      - datasets/source_to_concept
+      outputs:
+      - datasets/source_to_source_vocab_map
+      - datasets/source_to_standard_vocab_map
+    subgraphs: []
+    dependencies: {}
+  pipelines/L4-omop531-etl-synthea:
+    name: L4-1_omop531-etl-synthea
+    description: "ETL data from source to OMOP model. Creates new tables or inserts\
+      \ data into existing fact tables. \n"
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-03-30 22:40:53'
+    datasets:
+      inputs:
+      - datasets/all_visits
+      - datasets/assign_all_visit_ids
+      - datasets/final_visit_ids
+      - datasets/l0_bronze_layer_conditions
+      - datasets/l0_bronze_layer_encounters
+      - datasets/l0_bronze_layer_immunizations
+      - datasets/l0_bronze_layer_medications
+      - datasets/l0_bronze_layer_observations
+      - datasets/l0_bronze_layer_patients
+      - datasets/l0_bronze_layer_procedures
+      - datasets/person
+      - datasets/source_to_source_vocab_map
+      - datasets/source_to_standard_vocab_map
+      outputs:
+      - datasets/all_visits
+      - datasets/assign_all_visit_ids
+      - datasets/condition_occurence
+      - datasets/drug_exposure
+      - datasets/final_visit_ids
+      - datasets/measurement
+      - datasets/observation_period
+      - datasets/person
+      - datasets/procedure_occurence
+      - datasets/visit_occurence
+    subgraphs: []
+    dependencies: {}
+  pipelines/L4-2_omop531-etl-synthea:
+    name: L4-2_omop531-etl-synthea
+    description: Creates CTEs that populate condition_era and drug_era tables
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-04-02 04:19:00'
+    datasets:
+      inputs:
+      - datasets/concept
+      - datasets/concept_ancestor
+      - datasets/condition_occurence
+      - datasets/drug_exposure
+      outputs:
+      - datasets/condition_era
+      - datasets/drug_era
+    subgraphs:
+    - subgraphs/ctePreDrugTarget
+    - subgraphs/cteFinalTarget
+    - subgraphs/cteDrugEraEnds
+    - subgraphs/cteDrugExposureEnds
+    - subgraphs/cteSubExposureEndDates
+    - subgraphs/cteConditionTarget
+    - subgraphs/cteSubExposures
+    - subgraphs/cteConditionEnds
+    - subgraphs/cteEndDates2
+    - subgraphs/cteEndDates
+    dependencies: {}
+  pipelines/L6_drug-analysis:
+    name: L6-1_drug-analysis_UsageofOxycodonestratifiedbygender
+    description: This pipeline looks at trends in usage of a given drug over time.
+      Specifically how different population segments are using a given drug. In this
+      example we stratify results by age and gender.
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-04-02 09:19:03'
+    datasets:
+      inputs:
+      - datasets/concept
+      - datasets/drug_era
+      - datasets/person
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years:
+    name: L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years
+    description: Top drugs prescribed in the past five years.
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-04-02 09:49:51'
+    datasets:
+      inputs:
+      - datasets/concept
+      - datasets/drug_era
+      outputs:
+      - datasets/top_drugs_last_5_years
+    subgraphs: []
+    dependencies: {}
+  pipelines/L6-4_Pairwise-Association:
+    name: L6-4_Pairwise-Association
+    description: 'This pipeline examines the association between drugs. For example,
+      in an study of prescription drugs, we might be interested in learning which
+      drugs are more likely prescribed together compared to what would be expected
+      at random. For this analysis, we use two approaches: first we apply a simple
+      probabilistic approach, which uses the cosine measure to quantify the degree
+      of association between a pair of events (in this case, drug1 and drug2 being
+      used during the same drug era). Next, we use the FP-Growth algorithm from spark
+      mlLib to identify frequent patterns for prescription drugs. This is a similar
+      approach to market basket analysis (or affinity analytics).'
+    author: nathan+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-04-02 19:19:36'
+    datasets:
+      inputs:
+      - datasets/concept
+      - datasets/drug_era
+      outputs:
+      - datasets/COPRESCRIBED
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/configured_source:
+    name: L0_source
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-23 00:21:41'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: File
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-23 00:21:41'
+  datasets/configured_target:
+    name: L0_target
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-23 00:29:32'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-23 00:29:32'
+  datasets/L1_source:
+    name: L3_source
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-27 02:35:41'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: File
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-27 02:35:41'
+  datasets/L1_target:
+    name: L3_target
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-27 02:39:04'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-27 02:39:04'
+  datasets/concept:
+    name: concept
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 19:44:34'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 19:44:34'
+  datasets/vocabulary:
+    name: vocabulary
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 19:47:20'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 19:47:20'
+  datasets/domain:
+    name: domain
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 19:49:56'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 19:49:56'
+  datasets/concept_class:
+    name: concept_class
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 19:54:18'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 19:54:18'
+  datasets/concept_relationship:
+    name: concept_relationship
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:02:03'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:02:03'
+  datasets/relationship:
+    name: relationship
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:02:45'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:02:45'
+  datasets/concept_synonym:
+    name: concept_synonym
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:03:21'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:03:21'
+  datasets/concept_ancestor:
+    name: concept_ancestor
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:04:02'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:04:02'
+  datasets/source_to_concept:
+    name: source_to_concept_map
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:04:36'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:04:36'
+  datasets/drug_strength:
+    name: drug_strength
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:05:11'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:05:11'
+  datasets/attribute_definition:
+    name: attribute_definition
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:05:49'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:05:49'
+  datasets/cdm_source:
+    name: cdm_source
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:09:10'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:09:10'
+  datasets/metadata:
+    name: metadata
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:09:49'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:09:49'
+  datasets/observation_period:
+    name: observation_period
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:23:44'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:23:44'
+  datasets/visit_occurence:
+    name: visit_occurence
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:24:24'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:24:24'
+  datasets/visit_detail:
+    name: visit_detail
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:24:53'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:24:53'
+  datasets/condition_occurence:
+    name: condition_occurence
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:25:28'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:25:28'
+  datasets/drug_exposure:
+    name: drug_exposure
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:25:56'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:25:56'
+  datasets/procedure_occurence:
+    name: procedure_occurence
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:26:23'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:26:23'
+  datasets/device_exposure:
+    name: device_exposure
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:26:52'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:26:52'
+  datasets/measurement:
+    name: measurement
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:27:19'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:27:19'
+  datasets/note:
+    name: note
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:28:28'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:28:28'
+  datasets/note_nlp:
+    name: note_nlp
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:29:16'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:29:16'
+  datasets/observation:
+    name: observation
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:29:40'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:29:40'
+  datasets/specimen:
+    name: specimen
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:30:09'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:30:09'
+  datasets/fact_relationship:
+    name: fact_relationship
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:30:33'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:30:33'
+  datasets/death:
+    name: death
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:31:00'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:31:00'
+  datasets/location:
+    name: location
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:44:26'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:44:26'
+  datasets/care_site:
+    name: care_site
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:44:48'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:44:48'
+  datasets/provider:
+    name: provider
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:45:13'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:45:13'
+  datasets/payer_plan_period:
+    name: payer_plan_period
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:47:46'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:47:46'
+  datasets/cost:
+    name: cost
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:48:16'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:48:16'
+  datasets/condition_era:
+    name: condition_era
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:55:42'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:55:42'
+  datasets/drug_era:
+    name: drug_era
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:56:10'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:56:10'
+  datasets/dose_era:
+    name: dose_era
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:56:38'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:56:38'
+  datasets/cohort:
+    name: cohort
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:58:54'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:58:54'
+  datasets/cohort_definition:
+    name: cohort_definition
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:59:19'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:59:19'
+  datasets/cohort_attribute:
+    name: cohort_attribute
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 20:59:42'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 20:59:42'
+  datasets/source_to_standard_vocab_map:
+    name: source_to_standard_vocab_map
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 21:58:51'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 21:58:51'
+  datasets/source_to_source_vocab_map:
+    name: source_to_source_vocab_map
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 22:09:04'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 22:09:04'
+  datasets/l0_bronze_layer_encounters:
+    name: l0_bronze_layer_encounters
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 22:47:10'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 22:47:10'
+  datasets/all_visits:
+    name: all_visits
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-30 23:53:18'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-30 23:53:18'
+  datasets/assign_all_visit_ids:
+    name: assign_all_visit_ids
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-31 00:16:35'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-31 00:16:35'
+  datasets/final_visit_ids:
+    name: final_visit_ids
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-31 00:23:54'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-31 00:23:54'
+  datasets/l0_bronze_layer_patients:
+    name: l0_bronze_layer_patients
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-31 04:20:48'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-31 04:20:48'
+  datasets/l1_silver_omop531_person:
+    name: l1_silver_omop531_person
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-03-31 05:00:29'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-03-31 05:00:29'
+  datasets/person:
+    name: person
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-01 20:18:54'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-01 20:18:54'
+  datasets/l0_bronze_layer_conditions:
+    name: l0_bronze_layer_conditions
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 00:25:43'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 00:25:43'
+  datasets/l0_bronze_layer_procedures:
+    name: l0_bronze_layer_procedures
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 00:48:45'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 00:48:45'
+  datasets/l0_bronze_layer_observations:
+    name: l0_bronze_layer_observations
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 00:59:22'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 00:59:22'
+  datasets/l0_bronze_layer_medications:
+    name: l0_bronze_layer_medications
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 02:20:15'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 02:20:15'
+  datasets/l0_bronze_layer_immunizations:
+    name: l0_bronze_layer_immunizations
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 02:28:05'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 02:28:05'
+  datasets/top_drugs_last_5_years:
+    name: top_drugs_last_5_years
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 19:13:34'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 19:13:34'
+  datasets/COPRESCRIBED:
+    name: COPRESCRIBED
+    description: ''
+    author: nathan+demo@prophecy.io
+    createdAt: '2024-04-02 19:46:59'
+    mode: batch
+    physicalDatasets:
+      DBX_Dev:
+        fabricId: 4345
+        datasetType: Database
+        description: ''
+        author: nathan+demo@prophecy.io
+        createdAt: '2024-04-02 19:46:59'
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: '3.10'
+  gemLibsVersion: 1.3.4.0
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-03-22 23:23:23'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs:
+  subgraphs/cteConditionTarget:
+    name: cteConditionTarget
+    description: cteConditionTarget (condition_occurrence_id, person_id, condition_concept_id,
+      condition_start_datetime, condition_end_datetime)
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:10:22'
+  subgraphs/cteEndDates:
+    name: cteEndDates1
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:13:36'
+  subgraphs/cteConditionEnds:
+    name: cteConditionEnds
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:24:49'
+  subgraphs/ctePreDrugTarget:
+    name: ctePreDrugTarget
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:39:22'
+  subgraphs/cteSubExposureEndDates:
+    name: cteSubExposureEndDates
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:47:46'
+  subgraphs/cteDrugExposureEnds:
+    name: cteDrugExposureEnds
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:52:35'
+  subgraphs/cteSubExposures:
+    name: cteSubExposures
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:57:00'
+  subgraphs/cteFinalTarget:
+    name: cteFinalTarget
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 03:59:16'
+  subgraphs/cteEndDates2:
+    name: cteEndDates2
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 08:02:41'
+  subgraphs/cteDrugEraEnds:
+    name: cteDrugEraEnds
+    description: ''
+    author: nathan+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-04-02 08:06:00'
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies:
+- type: plibMaven
+  modifiedAt: '2024-06-03T18:01:48.137751Z'
+  name: plibMaven
+  version: 8.4.0
+  id: '1200605663'
+  createdAt: '2024-06-03T18:01:48.137644Z'
+  enabled: true
+  entity: Project
+- type: plibPypi
+  modifiedAt: '2024-06-03T18:01:48.137825Z'
+  name: plibPypi
+  version: 1.9.24
+  id: '1943040207'
+  createdAt: '2024-06-03T18:01:48.137795Z'
+  enabled: true
+  entity: Project
+projectDependencies:
+  '12654':
+    projectUID: 12654
+    projectName: ProphecySparkBasicsPython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
+    version: 0.2.34
+    isDefault: true
+    author: null
+    createdAt: '2024-11-22 02:26:06'
+  '12655':
+    projectUID: 12655
+    projectName: ProphecyWarehousePython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
+    version: 0.0.8
+    isDefault: true
+    author: null
+    createdAt: '2024-06-28 13:57:48'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}

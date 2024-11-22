@@ -1,0 +1,250 @@
+{
+  "id" : "W9YcCVxRV2wupO8rFkw1c",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "catalog_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "omop"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        }, {
+          "name" : "database_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "l1_silver_omop531"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : true
+        } ]
+      }
+    },
+    "comment" : "Further refine the data to understand each period of drug use better, including how long each period lasted."
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "Z24a34rS_ibUZvy3Lcd--",
+      "slug" : "cteDrugExposureEnds",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "JoKlCL-nM6vv5S0KQ4gCp",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "cteSubExposures"
+  },
+  "connections" : [ {
+    "id" : "Dd7Fh78ov9qGvg3quNECM",
+    "source" : "4y5yxzjnIpc-F8At_oZz5",
+    "sourcePort" : "hYjz3jzY3cn56iawKVh_N",
+    "target" : "B_CNa5MfV-wBu5DlDmj9e",
+    "targetPort" : "WhZ9W0mK3T47E5hFycNin"
+  }, {
+    "id" : "jlVvypHC58cWZOMF9oKRJ",
+    "source" : "W9YcCVxRV2wupO8rFkw1c",
+    "sourcePort" : "Z24a34rS_ibUZvy3Lcd--",
+    "target" : "4y5yxzjnIpc-F8At_oZz5",
+    "targetPort" : "35vVu8cHpqxgM0mZdFm0n"
+  }, {
+    "id" : "uU-EQpnwomL8tysYQoSCs",
+    "source" : "B_CNa5MfV-wBu5DlDmj9e",
+    "sourcePort" : "o7HBNSX75qbcuKAn5NCJV",
+    "target" : "W9YcCVxRV2wupO8rFkw1c",
+    "targetPort" : "JoKlCL-nM6vv5S0KQ4gCp"
+  } ],
+  "processes" : {
+    "4y5yxzjnIpc-F8At_oZz5" : {
+      "id" : "4y5yxzjnIpc-F8At_oZz5",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "drug_exposure_summary",
+        "slug" : "drug_exposure_summary",
+        "x" : 640,
+        "y" : 2220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "35vVu8cHpqxgM0mZdFm0n",
+          "slug" : "cteDrugExposureEnds"
+        } ],
+        "outputs" : [ {
+          "id" : "hYjz3jzY3cn56iawKVh_N",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "_row_id" : "c_481",
+          "target" : "drug_sub_exposure_start_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "min(drug_exposure_start_datetime)"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "c_482",
+          "target" : "drug_exposure_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "count(*)"
+          },
+          "description" : ""
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "35vVu8cHpqxgM0mZdFm0n$$shuC5fSAGkxyBht1i_zGB$$sofidxrXne1xkHU48aVp7##person_id", "35vVu8cHpqxgM0mZdFm0n$$shuC5fSAGkxyBht1i_zGB$$sofidxrXne1xkHU48aVp7##drug_sub_exposure_end_datetime", "35vVu8cHpqxgM0mZdFm0n$$shuC5fSAGkxyBht1i_zGB$$sofidxrXne1xkHU48aVp7##drug_exposure_start_datetime", "35vVu8cHpqxgM0mZdFm0n$$shuC5fSAGkxyBht1i_zGB$$sofidxrXne1xkHU48aVp7##drug_concept_id" ],
+        "groupBy" : [ {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "drug_concept_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_concept_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "drug_sub_exposure_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_sub_exposure_end_datetime"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    },
+    "B_CNa5MfV-wBu5DlDmj9e" : {
+      "id" : "B_CNa5MfV-wBu5DlDmj9e",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "drug_exposure_summary_reformatted",
+        "slug" : "drug_exposure_summary_reformatted",
+        "x" : 800,
+        "y" : 2220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WhZ9W0mK3T47E5hFycNin",
+          "slug" : "drug_exposure_summary"
+        } ],
+        "outputs" : [ {
+          "id" : "o7HBNSX75qbcuKAn5NCJV",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "row_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "row_number() OVER (PARTITION BY person_id, drug_concept_id, drug_sub_exposure_end_datetime ORDER BY person_id)"
+          },
+          "description" : "",
+          "_row_id" : "c_484"
+        }, {
+          "target" : "person_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_id"
+          },
+          "description" : "",
+          "_row_id" : "7639078664169669424"
+        }, {
+          "target" : "drug_concept_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_concept_id"
+          },
+          "description" : "",
+          "_row_id" : "5865430268112704965"
+        }, {
+          "target" : "drug_sub_exposure_start_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_sub_exposure_start_datetime"
+          },
+          "description" : "",
+          "_row_id" : "3332494580425090533"
+        }, {
+          "target" : "drug_sub_exposure_end_datetime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_sub_exposure_end_datetime"
+          },
+          "description" : "",
+          "_row_id" : "371117426647603322"
+        }, {
+          "target" : "drug_exposure_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "drug_exposure_count"
+          },
+          "description" : "",
+          "_row_id" : "8557609667662441546"
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "WhZ9W0mK3T47E5hFycNin$$BIxXBMx1PAjvpDawOUesH$$5VmAv0otjURE18Ujol3K-##drug_exposure_count", "WhZ9W0mK3T47E5hFycNin$$BIxXBMx1PAjvpDawOUesH$$5VmAv0otjURE18Ujol3K-##drug_sub_exposure_start_datetime", "WhZ9W0mK3T47E5hFycNin$$BIxXBMx1PAjvpDawOUesH$$5VmAv0otjURE18Ujol3K-##drug_concept_id", "WhZ9W0mK3T47E5hFycNin$$BIxXBMx1PAjvpDawOUesH$$5VmAv0otjURE18Ujol3K-##drug_sub_exposure_end_datetime", "WhZ9W0mK3T47E5hFycNin$$BIxXBMx1PAjvpDawOUesH$$5VmAv0otjURE18Ujol3K-##person_id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.34"
+      }
+    }
+  }
+}

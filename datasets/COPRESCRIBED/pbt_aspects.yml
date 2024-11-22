@@ -1,0 +1,53 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: drug1
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: drug2
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: count_d1d2
+    type: long
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: supp_d1d2
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: supp_d2d1
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: supp_d1
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: supp_d2
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

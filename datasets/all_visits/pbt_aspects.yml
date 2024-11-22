@@ -1,0 +1,46 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: encounter_id
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: patient
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: encounterclass
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_START_DATE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_END_DATE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: visit_occurrence_id
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

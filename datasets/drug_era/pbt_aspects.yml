@@ -1,0 +1,53 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: DRUG_ERA_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PERSON_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_ERA_START_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_ERA_END_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_EXPOSURE_COUNT
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: GAP_DAYS
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

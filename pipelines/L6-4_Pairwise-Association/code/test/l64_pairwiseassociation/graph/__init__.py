@@ -1,0 +1,1 @@
+from .test_drugs_and_names import *

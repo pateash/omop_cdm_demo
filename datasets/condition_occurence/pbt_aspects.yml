@@ -1,0 +1,116 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: CONDITION_OCCURRENCE_ID
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: person_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: target_concept_id
+    type: long
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_START_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_START_DATETIME
+    type: timestamp
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_END_DATE
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_END_DATETIME
+    type: timestamp
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_TYPE_CONCEPT_ID
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: STOP_REASON
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PROVIDER_ID
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_OCCURRENCE_ID
+    type: integer
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_DETAIL_ID
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_SOURCE_VALUE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_SOURCE_CONCEPT_ID
+    type: long
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_STATUS_SOURCE_VALUE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CONDITION_STATUS_CONCEPT_ID
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

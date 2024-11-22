@@ -1,0 +1,39 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: OBSERVATION_PERIOD_ID
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: person_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: OBSERVATION_PERIOD_START_DATE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: OBSERVATION_PERIOD_END_DATE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: period_type_concept_id
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

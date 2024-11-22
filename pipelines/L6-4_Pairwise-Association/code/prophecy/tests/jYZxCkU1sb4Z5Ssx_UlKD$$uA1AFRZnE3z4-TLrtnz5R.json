@@ -1,0 +1,97 @@
+{
+  "unitTests" : [ {
+    "data" : {
+      "V20uHl2iPDD7ISJGT9Fgz$$f_N2tSW2-X-uE7FKfEweu" : {
+        "values" : [ [ "1", "23" ], [ "2", "08" ], [ "3", "45" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "drug_concept_id",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "person_id",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      },
+      "5K7tD7sK9LWs8PZgIr_ja$$ywxFM_ClhsYV6fW4iRFW7" : {
+        "values" : [ [ "1", "Michael Jordan" ], [ "2", "Kobe Bryant" ], [ "5", "Tim Duncan" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "CONCEPT_ID",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "CONCEPT_NAME",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      },
+      "_6qAE83PRwBswN2ejhL16$$f1jnqbwOi8Uskc7JrfUob" : {
+        "values" : [ [ "1", "Michael Jordan", "23" ], [ "2", "Kobe Bryant", "08" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "DRUG_CONCEPT_ID",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "DRUG_CONCEPT_NAME",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "PERSON_ID",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      }
+    },
+    "name" : "Unit Test ",
+    "testType" : "outputRow",
+    "language" : "python"
+  } ],
+  "language" : "python"
+}

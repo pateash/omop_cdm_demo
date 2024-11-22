@@ -1,0 +1,53 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: cohort_definition_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: cohort_definition_name
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: cohort_definition_description
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: definition_type_concept_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: cohort_definition_syntax
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: subject_concept_id
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: cohort_initiation_date
+    type: date
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

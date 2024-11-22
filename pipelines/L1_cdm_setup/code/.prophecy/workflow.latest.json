@@ -1,0 +1,569 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/L1_cdm_setup",
+    "language" : "python",
+    "fabricId" : "14560",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "nathandemoprophecyioteam.sampleomop.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "database_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "L1_silver_layer"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "TableIterator_1_1",
+          "kind" : {
+            "type" : "record",
+            "fields" : [ {
+              "name" : "source_path",
+              "kind" : {
+                "type" : "string",
+                "value" : ""
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            }, {
+              "name" : "target_table",
+              "kind" : {
+                "type" : "string",
+                "value" : ""
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            }, {
+              "name" : "timestamp",
+              "kind" : {
+                "type" : "long",
+                "value" : 0
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            } ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : true,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "l1_cdm_setup",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "BC29xqUAHREdo5Q6_xE-j",
+    "source" : "9YfZ80UwIe1PzrqbQbJ2I$$OpthANK8DqeXMqgNanfeu",
+    "sourcePort" : "zJsNvT8F6LSlk9q0SsBBW$$02H8umk5dCXp6gQ0hl80R",
+    "target" : "OxfNLyHO0lMxoxZSv8Cpn$$FlCSjU8wQI_Cng7iihyRf",
+    "targetPort" : "2tRx5Zx1P-c4erXlry6QM$$V2X_ZYE5gxhlyaQ_yrb0t"
+  }, {
+    "id" : "U03KLUSCPva6--VSXxXEx",
+    "source" : "OxfNLyHO0lMxoxZSv8Cpn$$FlCSjU8wQI_Cng7iihyRf",
+    "sourcePort" : "DVs0urHsqNnE_LqLcWGpu$$TMQ4QB9qFO76qo_ogM9CE",
+    "target" : "p4aqNbF0N_MKGxxc7DVrn$$DwGjzW3KpDqfLuMs0Iave",
+    "targetPort" : "yarUwAloLydfFVNgvNj77$$gjXqCbxWWTRHJ8YYojRuo"
+  } ],
+  "processes" : {
+    "9YfZ80UwIe1PzrqbQbJ2I$$OpthANK8DqeXMqgNanfeu" : {
+      "id" : "9YfZ80UwIe1PzrqbQbJ2I$$OpthANK8DqeXMqgNanfeu",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "read_omop_vocabs_from_s3_1",
+        "slug" : "read_omop_vocabs_from_s3_1",
+        "x" : -2100,
+        "y" : -720,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "zJsNvT8F6LSlk9q0SsBBW$$02H8umk5dCXp6gQ0hl80R",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "path",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "size",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "modificationTime",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "out0 = spark.createDataFrame(dbutils.fs.ls('s3://hls-eng-data-public/data/rwe/omop-vocabs'))\n\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "OxfNLyHO0lMxoxZSv8Cpn$$FlCSjU8wQI_Cng7iihyRf" : {
+      "id" : "OxfNLyHO0lMxoxZSv8Cpn$$FlCSjU8wQI_Cng7iihyRf",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "extract_table_name_from_path_1",
+        "slug" : "extract_table_name_from_path_1",
+        "x" : -1920,
+        "y" : -720,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "2tRx5Zx1P-c4erXlry6QM$$V2X_ZYE5gxhlyaQ_yrb0t",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "path",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "size",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "modificationTime",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "DVs0urHsqNnE_LqLcWGpu$$TMQ4QB9qFO76qo_ogM9CE",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "source_path",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "path"
+          },
+          "description" : ""
+        }, {
+          "target" : "target_table",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "regexp_extract(path, '/([^/]+)\\.csv.gz$', 1)"
+          },
+          "description" : ""
+        }, {
+          "target" : "timestamp",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "modificationTime"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "2tRx5Zx1P-c4erXlry6QM$$V2X_ZYE5gxhlyaQ_yrb0t##path", "2tRx5Zx1P-c4erXlry6QM$$V2X_ZYE5gxhlyaQ_yrb0t##modificationTime" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "p4aqNbF0N_MKGxxc7DVrn$$DwGjzW3KpDqfLuMs0Iave" : {
+      "id" : "p4aqNbF0N_MKGxxc7DVrn$$DwGjzW3KpDqfLuMs0Iave",
+      "component" : "TableIterator",
+      "metadata" : {
+        "label" : "TableIterator_1_1",
+        "slug" : "TableIterator_1_1",
+        "x" : -1740,
+        "y" : -720,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "yarUwAloLydfFVNgvNj77$$gjXqCbxWWTRHJ8YYojRuo",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "source_path",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "target_table",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestamp",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "metagemProperty" : {
+          "availableColumnNames" : [ "source_path", "target_table", "timestamp" ],
+          "availableConfigFieldNames" : [ "source_path", "target_table", "timestamp" ],
+          "numberOfThreads" : "5",
+          "maxIteration" : "1000",
+          "parallelismEnabled" : false,
+          "configToColumnMap" : [ {
+            "configName" : "source_path",
+            "columnName" : "source_path"
+          }, {
+            "configName" : "target_table",
+            "columnName" : "target_table"
+          }, {
+            "configName" : "timestamp",
+            "columnName" : "timestamp"
+          } ]
+        }
+      },
+      "connections" : [ {
+        "id" : "xoLglsnrM7JI-VG-fSyDJ",
+        "source" : "p4aqNbF0N_MKGxxc7DVrn$$DwGjzW3KpDqfLuMs0Iave",
+        "sourcePort" : "yarUwAloLydfFVNgvNj77$$gjXqCbxWWTRHJ8YYojRuo",
+        "target" : "sSIjtD3QAQF38YHDpxvgS$$EWzsLDg-Y6e9IWGYsgvcj",
+        "targetPort" : "dd0Hf9F2pMLzGBI72kEiT$$xlEz4przJIvMOc1iKkpXs"
+      }, {
+        "id" : "53H9X99F0V-FAwABROX2O",
+        "source" : "NA9vhc8sN0XSDVZ9Trds4$$o4qp-ybzDwOH4zH_i69Ql",
+        "sourcePort" : "HXesDI95dAHtLZg7HAFqV$$twiULEd67pJKECCYoenPJ",
+        "target" : "32ZaMVfcFNbNMc5CmacLi$$PmrPE8vFLeq0yg2IUfbJJ",
+        "targetPort" : "1a3iugBczK2jREyxWrCfu$$qAnGyaW54p5qzDQmZ5LWD"
+      } ],
+      "processes" : {
+        "sSIjtD3QAQF38YHDpxvgS$$EWzsLDg-Y6e9IWGYsgvcj" : {
+          "id" : "sSIjtD3QAQF38YHDpxvgS$$EWzsLDg-Y6e9IWGYsgvcj",
+          "component" : "ControlFlowInput",
+          "metadata" : {
+            "label" : "TableIterator_Input_1",
+            "slug" : "TableIterator_Input_1",
+            "x" : -1065.2000366210937,
+            "y" : -293.79166870117183,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false,
+            "visualProperty" : {
+              "isHidden" : true
+            }
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "dd0Hf9F2pMLzGBI72kEiT$$xlEz4przJIvMOc1iKkpXs",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "source_path",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "target_table",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "timestamp",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "minNumberOfInPorts" : 1,
+            "allowOutportAddDelete" : true,
+            "description" : "",
+            "allowInportAddDelete" : true,
+            "minNumberOfOutPorts" : 0,
+            "allowOutportRename" : true,
+            "allowInportRename" : true
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/ControlFlowInput",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "G7yrvO0j_encpQeXcCmtX$$EQNnCZ10OJn7pp4ktTsMQ" : {
+          "id" : "G7yrvO0j_encpQeXcCmtX$$EQNnCZ10OJn7pp4ktTsMQ",
+          "component" : "ControlFlowOutput",
+          "metadata" : {
+            "label" : "TableIterator_Output_1",
+            "slug" : "TableIterator_Output_1",
+            "x" : -1065.2000366210937,
+            "y" : -293.79166870117183,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false,
+            "visualProperty" : {
+              "isHidden" : true
+            }
+          },
+          "ports" : {
+            "inputs" : [ ],
+            "outputs" : [ ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "minNumberOfInPorts" : 0,
+            "allowOutportAddDelete" : true,
+            "description" : "",
+            "allowInportAddDelete" : true,
+            "minNumberOfOutPorts" : 0,
+            "allowOutportRename" : true,
+            "allowInportRename" : true
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/ControlFlowOutput",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "NA9vhc8sN0XSDVZ9Trds4$$o4qp-ybzDwOH4zH_i69Ql" : {
+          "id" : "NA9vhc8sN0XSDVZ9Trds4$$o4qp-ybzDwOH4zH_i69Ql",
+          "component" : "Source",
+          "metadata" : {
+            "label" : "source_path_1",
+            "slug" : "source_path_1",
+            "x" : -1440,
+            "y" : -440,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ ],
+            "outputs" : [ {
+              "id" : "HXesDI95dAHtLZg7HAFqV$$twiULEd67pJKECCYoenPJ",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "datasetId" : "datasets/L1_source"
+          }
+        },
+        "32ZaMVfcFNbNMc5CmacLi$$PmrPE8vFLeq0yg2IUfbJJ" : {
+          "id" : "32ZaMVfcFNbNMc5CmacLi$$PmrPE8vFLeq0yg2IUfbJJ",
+          "component" : "Target",
+          "metadata" : {
+            "label" : "target_table_1",
+            "slug" : "target_table_1",
+            "x" : -1220,
+            "y" : -440,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "1a3iugBczK2jREyxWrCfu$$qAnGyaW54p5qzDQmZ5LWD",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "datasetId" : "datasets/L1_target"
+          }
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/TableIterator",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
