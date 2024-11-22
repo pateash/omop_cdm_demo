@@ -38,17 +38,14 @@
   "ports" : {
     "inputs" : [ {
       "id" : "S8sR_fxfm980FN-mTjkwv",
-      "slug" : "c",
-      "isStreaming" : false
+      "slug" : "c"
     }, {
       "id" : "VdgKPsv_nugbfJV1XmoiY",
-      "slug" : "e0",
-      "isStreaming" : false
+      "slug" : "e0"
     } ],
     "outputs" : [ {
       "id" : "McJS24PjzfagsvAF9ANGp",
-      "slug" : "out0",
-      "isStreaming" : false
+      "slug" : "out0"
     } ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,

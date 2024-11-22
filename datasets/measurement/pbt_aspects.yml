@@ -2,140 +2,140 @@ version: 1
 schema:
   type: struct
   fields:
-  - name: measurement_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: person_id
+  - name: MEASUREMENT_ID
     type: long
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_concept_id
+  - name: PERSON_ID
     type: long
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_date
+  - name: MEASUREMENT_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: MEASUREMENT_DATE
     type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_datetime
+  - name: MEASUREMENT_DATETIME
     type: timestamp
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_time
+  - name: MEASUREMENT_TIME
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_type_concept_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: operator_concept_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: value_as_number
-    type: float
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: value_as_concept_id
+  - name: MEASUREMENT_TYPE_CONCEPT_ID
     type: long
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: unit_concept_id
+  - name: OPERATOR_CONCEPT_ID
     type: long
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: range_low
-    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: range_high
-    type: integer
+  - name: VALUE_AS_NUMBER
+    type: double
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: provider_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: visit_occurrence_id
-    type: integer
+  - name: VALUE_AS_CONCEPT_ID
+    type: long
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: visit_detail_id
-    type: integer
-    nullable: false
+  - name: UNIT_CONCEPT_ID
+    type: long
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_source_value
+  - name: RANGE_LOW
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: RANGE_HIGH
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PROVIDER_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_OCCURRENCE_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_DETAIL_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: MEASUREMENT_SOURCE_VALUE
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: measurement_source_concept_id
+  - name: MEASUREMENT_SOURCE_CONCEPT_ID
     type: long
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: unit_source_value
+  - name: UNIT_SOURCE_VALUE
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: value_source_value
+  - name: VALUE_SOURCE_VALUE
     type: string
     nullable: true
     metadata:

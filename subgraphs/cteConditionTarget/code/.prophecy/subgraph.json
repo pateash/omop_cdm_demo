@@ -39,8 +39,7 @@
     "inputs" : [ ],
     "outputs" : [ {
       "id" : "5LlhXxsxfdIlq5qlchnpH",
-      "slug" : "out",
-      "isStreaming" : false
+      "slug" : "out"
     } ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
@@ -372,6 +371,15 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "CONDITION_OCCURRENCE_ID",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "person_id",
               "type" : "long",
               "nullable" : true,
               "metadata" : {
@@ -380,18 +388,9 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "PERSON_ID",
+              "name" : "target_concept_id",
               "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "CONDITION_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -435,8 +434,8 @@
               }
             }, {
               "name" : "CONDITION_TYPE_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -453,8 +452,8 @@
               }
             }, {
               "name" : "PROVIDER_ID",
-              "type" : "long",
-              "nullable" : true,
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -462,7 +461,7 @@
               }
             }, {
               "name" : "VISIT_OCCURRENCE_ID",
-              "type" : "long",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -471,8 +470,8 @@
               }
             }, {
               "name" : "VISIT_DETAIL_ID",
-              "type" : "long",
-              "nullable" : true,
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -490,7 +489,7 @@
             }, {
               "name" : "CONDITION_SOURCE_CONCEPT_ID",
               "type" : "long",
-              "nullable" : true,
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
@@ -507,8 +506,8 @@
               }
             }, {
               "name" : "CONDITION_STATUS_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],

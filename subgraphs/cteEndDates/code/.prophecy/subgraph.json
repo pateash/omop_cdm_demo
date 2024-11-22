@@ -38,13 +38,11 @@
   "ports" : {
     "inputs" : [ {
       "id" : "kGcOe1_P0jXDy7CIR-Ozm",
-      "slug" : "in0",
-      "isStreaming" : false
+      "slug" : "in0"
     } ],
     "outputs" : [ {
       "id" : "7t4Pl6AfTHoul9kGEEI9s",
-      "slug" : "out0",
-      "isStreaming" : false
+      "slug" : "out0"
     } ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,

@@ -3,13 +3,13 @@ schema:
   type: struct
   fields:
   - name: OBSERVATION_PERIOD_ID
-    type: integer
-    nullable: false
+    type: long
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: person_id
+  - name: PERSON_ID
     type: long
     nullable: true
     metadata:
@@ -17,22 +17,22 @@ schema:
       mappings: []
       tags: []
   - name: OBSERVATION_PERIOD_START_DATE
-    type: string
+    type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: OBSERVATION_PERIOD_END_DATE
-    type: string
+    type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: period_type_concept_id
-    type: integer
-    nullable: false
+  - name: PERIOD_TYPE_CONCEPT_ID
+    type: long
+    nullable: true
     metadata:
       description: ''
       mappings: []

@@ -1272,7 +1272,16 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "DRUG_EXPOSURE_ID",
+              "name" : "drug_exposure_id",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "person_id",
               "type" : "long",
               "nullable" : true,
               "metadata" : {
@@ -1281,25 +1290,16 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "PERSON_ID",
+              "name" : "drug_concept_id",
               "type" : "long",
-              "nullable" : true,
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "DRUG_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_EXPOSURE_START_DATE",
+              "name" : "drug_exposure_start_date",
               "type" : "date",
               "nullable" : true,
               "metadata" : {
@@ -1308,7 +1308,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "DRUG_EXPOSURE_START_DATETIME",
+              "name" : "drug_exposure_start_datetime",
               "type" : "timestamp",
               "nullable" : true,
               "metadata" : {
@@ -1317,7 +1317,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "DRUG_EXPOSURE_END_DATE",
+              "name" : "drug_exposure_end_date",
               "type" : "date",
               "nullable" : true,
               "metadata" : {
@@ -1326,7 +1326,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "DRUG_EXPOSURE_END_DATETIME",
+              "name" : "drug_exposure_end_datetime",
               "type" : "timestamp",
               "nullable" : true,
               "metadata" : {
@@ -1335,25 +1335,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "VERBATIM_END_DATE",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_TYPE_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "STOP_REASON",
+              "name" : "verbatim_end_date",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -1362,34 +1344,16 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "REFILLS",
-              "type" : "long",
-              "nullable" : true,
+              "name" : "drug_type_concept_id",
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "QUANTITY",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DAYS_SUPPLY",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "SIG",
+              "name" : "stop_reason",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -1398,8 +1362,26 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "ROUTE_CONCEPT_ID",
-              "type" : "long",
+              "name" : "refills",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "days_supply",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -1407,7 +1389,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "LOT_NUMBER",
+              "name" : "sig",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -1416,8 +1398,35 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "PROVIDER_ID",
-              "type" : "long",
+              "name" : "route_concept_id",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "lot_number",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "provider_id",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "visit_occurrence_id",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -1425,25 +1434,16 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "VISIT_OCCURRENCE_ID",
-              "type" : "long",
-              "nullable" : true,
+              "name" : "visit_detail_id",
+              "type" : "integer",
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "VISIT_DETAIL_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_SOURCE_VALUE",
+              "name" : "drug_source_value",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -1452,16 +1452,16 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "DRUG_SOURCE_CONCEPT_ID",
+              "name" : "drug_source_concept_id",
               "type" : "long",
-              "nullable" : true,
+              "nullable" : false,
               "metadata" : {
                 "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "ROUTE_SOURCE_VALUE",
+              "name" : "route_source_value",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -1470,7 +1470,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "DOSE_UNIT_SOURCE_VALUE",
+              "name" : "dose_unit_source_value",
               "type" : "string",
               "nullable" : true,
               "metadata" : {

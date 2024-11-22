@@ -152,53 +152,6 @@ pipelines:
       - datasets/visit_occurence
     subgraphs: []
     dependencies: {}
-  pipelines/L4-2_omop531-etl-synthea:
-    name: L4-2_omop531-etl-synthea
-    description: Creates CTEs that populate condition_era and drug_era tables
-    author: nathan+demo@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-04-02 04:19:00'
-    datasets:
-      inputs:
-      - datasets/concept
-      - datasets/concept_ancestor
-      - datasets/condition_occurence
-      - datasets/drug_exposure
-      outputs:
-      - datasets/condition_era
-      - datasets/drug_era
-    subgraphs:
-    - subgraphs/ctePreDrugTarget
-    - subgraphs/cteFinalTarget
-    - subgraphs/cteDrugEraEnds
-    - subgraphs/cteDrugExposureEnds
-    - subgraphs/cteSubExposureEndDates
-    - subgraphs/cteConditionTarget
-    - subgraphs/cteSubExposures
-    - subgraphs/cteConditionEnds
-    - subgraphs/cteEndDates2
-    - subgraphs/cteEndDates
-    dependencies: {}
-  pipelines/L6_drug-analysis:
-    name: L6-1_drug-analysis_UsageofOxycodonestratifiedbygender
-    description: This pipeline looks at trends in usage of a given drug over time.
-      Specifically how different population segments are using a given drug. In this
-      example we stratify results by age and gender.
-    author: nathan+demo@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-04-02 09:19:03'
-    datasets:
-      inputs:
-      - datasets/concept
-      - datasets/drug_era
-      - datasets/person
-      outputs: []
-    subgraphs: []
-    dependencies: {}
   pipelines/L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years:
     name: L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years
     description: Top drugs prescribed in the past five years.

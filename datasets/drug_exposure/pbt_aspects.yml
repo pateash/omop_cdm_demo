@@ -2,161 +2,161 @@ version: 1
 schema:
   type: struct
   fields:
-  - name: drug_exposure_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: person_id
+  - name: DRUG_EXPOSURE_ID
     type: long
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: drug_concept_id
+  - name: PERSON_ID
     type: long
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: drug_exposure_start_date
+  - name: DRUG_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_EXPOSURE_START_DATE
     type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: drug_exposure_start_datetime
+  - name: DRUG_EXPOSURE_START_DATETIME
     type: timestamp
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: drug_exposure_end_date
+  - name: DRUG_EXPOSURE_END_DATE
     type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: drug_exposure_end_datetime
+  - name: DRUG_EXPOSURE_END_DATETIME
     type: timestamp
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: verbatim_end_date
-    type: string
+  - name: VERBATIM_END_DATE
+    type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: drug_type_concept_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: stop_reason
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: refills
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: quantity
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: days_supply
-    type: integer
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: sig
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: route_concept_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: lot_number
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: provider_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: visit_occurrence_id
-    type: integer
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: visit_detail_id
-    type: integer
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: drug_source_value
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: drug_source_concept_id
+  - name: DRUG_TYPE_CONCEPT_ID
     type: long
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: route_source_value
+  - name: STOP_REASON
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: dose_unit_source_value
+  - name: REFILLS
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: QUANTITY
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DAYS_SUPPLY
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: SIG
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ROUTE_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: LOT_NUMBER
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PROVIDER_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_OCCURRENCE_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: VISIT_DETAIL_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_SOURCE_VALUE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DRUG_SOURCE_CONCEPT_ID
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ROUTE_SOURCE_VALUE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DOSE_UNIT_SOURCE_VALUE
     type: string
     nullable: true
     metadata:
