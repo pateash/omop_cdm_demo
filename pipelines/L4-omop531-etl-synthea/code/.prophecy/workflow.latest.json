@@ -15485,7 +15485,7 @@
             "cache" : false,
             "detailedStats" : false,
             "isImported" : false,
-            "comment" : "Integrates patient encounter data with visit information to create a comprehensive view of healthcare services provided, including cost details.",
+            "comment" : "Integrates patient encounter data with visit records to provide a comprehensive view of healthcare interactions, including costs and visit types.",
             "autoUpdateComment" : true
           },
           "ports" : {
@@ -15760,7 +15760,7 @@
               "target" : "VISIT_OCCURRENCE_COST",
               "expression" : {
                 "format" : "sql",
-                "expression" : "CAST(110 AS DOUBLE)"
+                "expression" : "CAST(120 AS DOUBLE)"
               },
               "description" : "",
               "_row_id" : "c_175"
