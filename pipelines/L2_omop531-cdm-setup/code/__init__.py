@@ -1,1 +1,0 @@
-from .l2_omop531cdmsetup import *

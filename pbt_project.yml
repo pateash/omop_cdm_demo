@@ -45,76 +45,6 @@ pipelines:
       - datasets/L1_target
     subgraphs: []
     dependencies: {}
-  pipelines/L2_omop531-cdm-setup:
-    name: L2_omop531-cdm-setup
-    description: Setup vocabulary tables for Common Data Model (CDM)
-    author: nathan+demo@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-03-30 19:36:09'
-    datasets:
-      inputs: []
-      outputs:
-      - datasets/attribute_definition
-      - datasets/care_site
-      - datasets/cdm_source
-      - datasets/cohort
-      - datasets/cohort_attribute
-      - datasets/cohort_definition
-      - datasets/concept
-      - datasets/concept_ancestor
-      - datasets/concept_class
-      - datasets/concept_relationship
-      - datasets/concept_synonym
-      - datasets/condition_era
-      - datasets/condition_occurence
-      - datasets/cost
-      - datasets/death
-      - datasets/device_exposure
-      - datasets/domain
-      - datasets/dose_era
-      - datasets/drug_era
-      - datasets/drug_exposure
-      - datasets/drug_strength
-      - datasets/fact_relationship
-      - datasets/location
-      - datasets/measurement
-      - datasets/metadata
-      - datasets/note
-      - datasets/note_nlp
-      - datasets/observation
-      - datasets/observation_period
-      - datasets/payer_plan_period
-      - datasets/person
-      - datasets/procedure_occurence
-      - datasets/provider
-      - datasets/relationship
-      - datasets/source_to_concept
-      - datasets/specimen
-      - datasets/visit_detail
-      - datasets/visit_occurence
-      - datasets/vocabulary
-    subgraphs: []
-    dependencies: {}
-  pipelines/L3-2_omop-vocab-setup_create_vocab_map_tables:
-    name: L3-2_omop-vocab-setup_create_vocab_map_tables
-    description: Create vocabulary mapping tables
-    author: nathan+demo@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-03-30 21:34:12'
-    datasets:
-      inputs:
-      - datasets/concept
-      - datasets/concept_relationship
-      - datasets/source_to_concept
-      outputs:
-      - datasets/source_to_source_vocab_map
-      - datasets/source_to_standard_vocab_map
-    subgraphs: []
-    dependencies: {}
   pipelines/L4-omop531-etl-synthea:
     name: L4-1_omop531-etl-synthea
     description: "ETL data from source to OMOP model. Creates new tables or inserts\
@@ -150,22 +80,6 @@ pipelines:
       - datasets/person
       - datasets/procedure_occurence
       - datasets/visit_occurence
-    subgraphs: []
-    dependencies: {}
-  pipelines/L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years:
-    name: L6-2_drug_analysis_top-drugs-prescribed-in-the-past-5-years
-    description: Top drugs prescribed in the past five years.
-    author: nathan+demo@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-04-02 09:49:51'
-    datasets:
-      inputs:
-      - datasets/concept
-      - datasets/drug_era
-      outputs:
-      - datasets/top_drugs_last_5_years
     subgraphs: []
     dependencies: {}
   pipelines/L6-4_Pairwise-Association:
