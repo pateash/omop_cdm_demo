@@ -49,4 +49,4 @@ def join_multiple_inputs(spark: SparkSession, E: DataFrame, AV: DataFrame, ) -> 
             .otherwise(lit(None))
         )\
         .otherwise(lit(None))\
-        .alias("VISIT_OCCURRENCE_ID_NEW"), lit(100).cast(DoubleType()).alias("VISIT_OCCURRENCE_COST"))
+        .alias("VISIT_OCCURRENCE_ID_NEW"), lit(110).cast(DoubleType()).alias("VISIT_OCCURRENCE_COST"))

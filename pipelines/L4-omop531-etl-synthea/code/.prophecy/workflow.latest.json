@@ -15485,7 +15485,7 @@
             "cache" : false,
             "detailedStats" : false,
             "isImported" : false,
-            "comment" : "Integrates patient encounter data with visit records to provide a comprehensive view of healthcare interactions, including costs associated with each visit.",
+            "comment" : "Integrates patient encounter data with visit information to create a comprehensive view of healthcare services provided, including cost details.",
             "autoUpdateComment" : true
           },
           "ports" : {
@@ -15760,7 +15760,7 @@
               "target" : "VISIT_OCCURRENCE_COST",
               "expression" : {
                 "format" : "sql",
-                "expression" : "CAST(100 AS DOUBLE)"
+                "expression" : "CAST(110 AS DOUBLE)"
               },
               "description" : "",
               "_row_id" : "c_175"
@@ -15778,7 +15778,7 @@
             } ],
             "allIn1" : null,
             "activeTab" : "expressions",
-            "columnsSelector" : [ "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##patient", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##Id", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##encounterclass", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##STOP", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##visit_occurrence_id", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##ENCOUNTERCLASS" ],
+            "columnsSelector" : [ "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##patient", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##STOP", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##encounterclass", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##Id", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##visit_occurrence_id", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##ENCOUNTERCLASS" ],
             "allIn0" : null,
             "whereClause" : null,
             "headAlias" : "E"
