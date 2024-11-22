@@ -10,8 +10,8 @@ schema:
       mappings: []
       tags: []
   - name: person_id
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []

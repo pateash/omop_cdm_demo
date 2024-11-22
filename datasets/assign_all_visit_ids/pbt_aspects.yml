@@ -72,3 +72,10 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: VISIT_OCCURRENCE_COST
+    type: double
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

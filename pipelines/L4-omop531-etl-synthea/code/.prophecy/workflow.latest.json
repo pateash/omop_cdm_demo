@@ -945,17 +945,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -964,7 +964,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -973,7 +973,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -982,7 +982,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -991,7 +991,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -1000,8 +1000,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -1009,8 +1009,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -1018,7 +1018,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -1027,8 +1027,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -1036,7 +1036,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -1063,8 +1063,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -1081,8 +1081,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -1099,8 +1099,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -1372,8 +1372,8 @@
                   }
                 }, {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -2129,17 +2129,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2148,7 +2148,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2157,7 +2157,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2166,7 +2166,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2175,7 +2175,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2184,8 +2184,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -2193,8 +2193,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -2202,7 +2202,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2211,8 +2211,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -2220,7 +2220,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -2247,8 +2247,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -2265,8 +2265,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -2283,8 +2283,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3112,17 +3112,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3131,7 +3131,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3140,7 +3140,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3149,7 +3149,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3158,7 +3158,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3167,8 +3167,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3176,8 +3176,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3185,7 +3185,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3194,8 +3194,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3203,7 +3203,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3230,8 +3230,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3248,8 +3248,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3266,8 +3266,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -3942,17 +3942,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3961,7 +3961,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3970,7 +3970,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3979,7 +3979,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3988,7 +3988,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -3997,8 +3997,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4006,8 +4006,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4015,7 +4015,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -4024,8 +4024,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4033,7 +4033,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -4060,8 +4060,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4078,8 +4078,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4096,8 +4096,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4417,8 +4417,8 @@
                   }
                 }, {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -4809,8 +4809,8 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -5211,8 +5211,8 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -5417,8 +5417,8 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -5623,8 +5623,8 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10060,17 +10060,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10079,7 +10079,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10088,7 +10088,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10097,7 +10097,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10106,7 +10106,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10115,8 +10115,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10124,8 +10124,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10133,7 +10133,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10142,8 +10142,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10151,7 +10151,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10178,8 +10178,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10196,8 +10196,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10214,8 +10214,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10447,8 +10447,8 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10551,17 +10551,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10570,7 +10570,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10579,7 +10579,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10588,7 +10588,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10597,7 +10597,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10606,8 +10606,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10615,8 +10615,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10624,7 +10624,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10633,8 +10633,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10642,7 +10642,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -10669,8 +10669,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10687,8 +10687,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10705,8 +10705,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -10894,8 +10894,8 @@
                   }
                 }, {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -11100,6 +11100,15 @@
                   "name" : "VISIT_OCCURRENCE_ID_NEW",
                   "type" : "integer",
                   "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "VISIT_OCCURRENCE_COST",
+                  "type" : "double",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -12080,8 +12089,8 @@
                     "type" : "struct",
                     "fields" : [ {
                       "name" : "person_id",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -12259,8 +12268,8 @@
                     "type" : "struct",
                     "fields" : [ {
                       "name" : "person_id",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -12960,17 +12969,17 @@
                   "schema" : {
                     "type" : "struct",
                     "fields" : [ {
-                      "name" : "PERSON_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "name" : "person_id",
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
                         "tags" : [ ]
                       }
                     }, {
-                      "name" : "GENDER_CONCEPT_ID",
-                      "type" : "long",
+                      "name" : "gender_concept_id",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -12979,7 +12988,7 @@
                       }
                     }, {
                       "name" : "YEAR_OF_BIRTH",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -12988,7 +12997,7 @@
                       }
                     }, {
                       "name" : "MONTH_OF_BIRTH",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -12997,7 +13006,7 @@
                       }
                     }, {
                       "name" : "DAY_OF_BIRTH",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -13006,7 +13015,7 @@
                       }
                     }, {
                       "name" : "BIRTH_DATETIME",
-                      "type" : "timestamp",
+                      "type" : "string",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -13015,8 +13024,8 @@
                       }
                     }, {
                       "name" : "RACE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -13024,8 +13033,8 @@
                       }
                     }, {
                       "name" : "ETHNICITY_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -13033,7 +13042,7 @@
                       }
                     }, {
                       "name" : "LOCATION_ID",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -13042,8 +13051,8 @@
                       }
                     }, {
                       "name" : "PROVIDER_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -13051,7 +13060,7 @@
                       }
                     }, {
                       "name" : "CARE_SITE_ID",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -13078,8 +13087,8 @@
                       }
                     }, {
                       "name" : "GENDER_SOURCE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -13096,8 +13105,8 @@
                       }
                     }, {
                       "name" : "RACE_SOURCE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -13114,8 +13123,8 @@
                       }
                     }, {
                       "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14196,17 +14205,17 @@
                   "schema" : {
                     "type" : "struct",
                     "fields" : [ {
-                      "name" : "PERSON_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "name" : "person_id",
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
                         "tags" : [ ]
                       }
                     }, {
-                      "name" : "GENDER_CONCEPT_ID",
-                      "type" : "long",
+                      "name" : "gender_concept_id",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14215,7 +14224,7 @@
                       }
                     }, {
                       "name" : "YEAR_OF_BIRTH",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14224,7 +14233,7 @@
                       }
                     }, {
                       "name" : "MONTH_OF_BIRTH",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14233,7 +14242,7 @@
                       }
                     }, {
                       "name" : "DAY_OF_BIRTH",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14242,7 +14251,7 @@
                       }
                     }, {
                       "name" : "BIRTH_DATETIME",
-                      "type" : "timestamp",
+                      "type" : "string",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14251,8 +14260,8 @@
                       }
                     }, {
                       "name" : "RACE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14260,8 +14269,8 @@
                       }
                     }, {
                       "name" : "ETHNICITY_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14269,7 +14278,7 @@
                       }
                     }, {
                       "name" : "LOCATION_ID",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14278,8 +14287,8 @@
                       }
                     }, {
                       "name" : "PROVIDER_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14287,7 +14296,7 @@
                       }
                     }, {
                       "name" : "CARE_SITE_ID",
-                      "type" : "long",
+                      "type" : "integer",
                       "nullable" : true,
                       "metadata" : {
                         "description" : "",
@@ -14314,8 +14323,8 @@
                       }
                     }, {
                       "name" : "GENDER_SOURCE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14332,8 +14341,8 @@
                       }
                     }, {
                       "name" : "RACE_SOURCE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14350,8 +14359,8 @@
                       }
                     }, {
                       "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                      "type" : "long",
-                      "nullable" : true,
+                      "type" : "integer",
+                      "nullable" : false,
                       "metadata" : {
                         "description" : "",
                         "mappings" : [ ],
@@ -14691,8 +14700,8 @@
                 "type" : "struct",
                 "fields" : [ {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -15054,8 +15063,8 @@
                   }
                 }, {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -15272,7 +15281,7 @@
         "target" : "o9NBItB8OIx3YkWFcaBPd$$Ir0IfhKwGKiEzPxdxegWu",
         "targetPort" : "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG"
       }, {
-        "id" : "Kt93XDTT0loSuO6qTjBoz$$_y-XxLEVPJuUf0q3htpBl",
+        "id" : "DHRdYTP5v5giS522L0Nw3",
         "source" : "o9NBItB8OIx3YkWFcaBPd$$Ir0IfhKwGKiEzPxdxegWu",
         "sourcePort" : "Vnod2XVkS1dy0heEC6S3x$$xkEHmtG_QqHGVOt2sOKxg",
         "target" : "I4vwBD_5gVR47xiuT8RIl$$DUgW53q7kEnftXg_EmhG5",
@@ -15339,8 +15348,8 @@
           "metadata" : {
             "label" : "assign_all_visit_ids",
             "slug" : "assign_all_visit_ids",
-            "x" : -40,
-            "y" : 340,
+            "x" : 100,
+            "y" : 320,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
@@ -15442,6 +15451,15 @@
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
+                }, {
+                  "name" : "VISIT_OCCURRENCE_COST",
+                  "type" : "double",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
                 } ]
               },
               "isStreaming" : false
@@ -15461,12 +15479,14 @@
           "metadata" : {
             "label" : "join_multiple_inputs",
             "slug" : "join_multiple_inputs",
-            "x" : -220,
-            "y" : 340,
+            "x" : -140,
+            "y" : 320,
             "phase" : 0,
             "cache" : false,
             "detailedStats" : false,
-            "isImported" : false
+            "isImported" : false,
+            "comment" : "Integrates patient encounter data with visit records to provide a comprehensive view of healthcare interactions, including costs associated with each visit.",
+            "autoUpdateComment" : true
           },
           "ports" : {
             "inputs" : [ {
@@ -15736,6 +15756,14 @@
               },
               "description" : "",
               "_row_id" : "c_334"
+            }, {
+              "target" : "VISIT_OCCURRENCE_COST",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "CAST(100 AS DOUBLE)"
+              },
+              "description" : "",
+              "_row_id" : "c_175"
             } ],
             "hints" : [ {
               "id" : "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG",
@@ -15750,7 +15778,7 @@
             } ],
             "allIn1" : null,
             "activeTab" : "expressions",
-            "columnsSelector" : [ "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##patient", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##Id", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##visit_occurrence_id", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##ENCOUNTERCLASS", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##encounterclass", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##STOP" ],
+            "columnsSelector" : [ "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##patient", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##Id", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##PATIENT", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##encounterclass", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##STOP", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_START_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##START", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##visit_occurrence_id", "jce0nKEnNLGBmxJNxSAaV$$ekuhSUX3G40TcVSsSiYs_##VISIT_END_DATE", "AvCNViTc4fd89px-RRb9K$$f5GzBoq-64xJnDdFZogRG##ENCOUNTERCLASS" ],
             "allIn0" : null,
             "whereClause" : null,
             "headAlias" : "E"
@@ -15851,8 +15879,8 @@
                   }
                 }, {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16117,8 +16145,8 @@
                   }
                 }, {
                   "name" : "person_id",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16126,7 +16154,7 @@
                   }
                 }, {
                   "name" : "gender_concept_id",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16135,7 +16163,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16144,7 +16172,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16153,7 +16181,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16162,7 +16190,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16171,8 +16199,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16180,8 +16208,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16189,7 +16217,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16198,8 +16226,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16207,7 +16235,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16234,8 +16262,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16252,8 +16280,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16270,8 +16298,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16618,17 +16646,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16637,7 +16665,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16646,7 +16674,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16655,7 +16683,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16664,7 +16692,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16673,8 +16701,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16682,8 +16710,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16691,7 +16719,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16700,8 +16728,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16709,7 +16737,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -16736,8 +16764,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16754,8 +16782,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -16772,8 +16800,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18417,17 +18445,17 @@
               "schema" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "name" : "person_id",
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
                 }, {
-                  "name" : "GENDER_CONCEPT_ID",
-                  "type" : "long",
+                  "name" : "gender_concept_id",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18436,7 +18464,7 @@
                   }
                 }, {
                   "name" : "YEAR_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18445,7 +18473,7 @@
                   }
                 }, {
                   "name" : "MONTH_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18454,7 +18482,7 @@
                   }
                 }, {
                   "name" : "DAY_OF_BIRTH",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18463,7 +18491,7 @@
                   }
                 }, {
                   "name" : "BIRTH_DATETIME",
-                  "type" : "timestamp",
+                  "type" : "string",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18472,8 +18500,8 @@
                   }
                 }, {
                   "name" : "RACE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18481,8 +18509,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18490,7 +18518,7 @@
                   }
                 }, {
                   "name" : "LOCATION_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18499,8 +18527,8 @@
                   }
                 }, {
                   "name" : "PROVIDER_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18508,7 +18536,7 @@
                   }
                 }, {
                   "name" : "CARE_SITE_ID",
-                  "type" : "long",
+                  "type" : "integer",
                   "nullable" : true,
                   "metadata" : {
                     "description" : "",
@@ -18535,8 +18563,8 @@
                   }
                 }, {
                   "name" : "GENDER_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18553,8 +18581,8 @@
                   }
                 }, {
                   "name" : "RACE_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18571,8 +18599,8 @@
                   }
                 }, {
                   "name" : "ETHNICITY_SOURCE_CONCEPT_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
@@ -18801,8 +18829,8 @@
                   }
                 }, {
                   "name" : "PERSON_ID",
-                  "type" : "long",
-                  "nullable" : true,
+                  "type" : "integer",
+                  "nullable" : false,
                   "metadata" : {
                     "description" : "",
                     "mappings" : [ ],
