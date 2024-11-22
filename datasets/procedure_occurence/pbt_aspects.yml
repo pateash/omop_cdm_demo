@@ -3,8 +3,8 @@ schema:
   type: struct
   fields:
   - name: PROCEDURE_OCCURRENCE_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
@@ -18,7 +18,7 @@ schema:
       tags: []
   - name: PROCEDURE_CONCEPT_ID
     type: long
-    nullable: true
+    nullable: false
     metadata:
       description: ''
       mappings: []
@@ -38,43 +38,43 @@ schema:
       mappings: []
       tags: []
   - name: PROCEDURE_TYPE_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: MODIFIER_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: QUANTITY
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: PROVIDER_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: VISIT_OCCURRENCE_ID
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: VISIT_DETAIL_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
@@ -88,7 +88,7 @@ schema:
       tags: []
   - name: PROCEDURE_SOURCE_CONCEPT_ID
     type: long
-    nullable: true
+    nullable: false
     metadata:
       description: ''
       mappings: []

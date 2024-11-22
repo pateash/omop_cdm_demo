@@ -2,78 +2,78 @@ version: 1
 schema:
   type: struct
   fields:
-  - name: PERSON_ID
-    type: long
-    nullable: true
+  - name: person_id
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: GENDER_CONCEPT_ID
-    type: long
+  - name: gender_concept_id
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: YEAR_OF_BIRTH
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: MONTH_OF_BIRTH
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: DAY_OF_BIRTH
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: BIRTH_DATETIME
-    type: timestamp
+    type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: RACE_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: ETHNICITY_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: LOCATION_ID
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: PROVIDER_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: CARE_SITE_ID
-    type: long
+    type: integer
     nullable: true
     metadata:
       description: ''
@@ -94,8 +94,8 @@ schema:
       mappings: []
       tags: []
   - name: GENDER_SOURCE_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
@@ -108,8 +108,8 @@ schema:
       mappings: []
       tags: []
   - name: RACE_SOURCE_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []
@@ -122,8 +122,8 @@ schema:
       mappings: []
       tags: []
   - name: ETHNICITY_SOURCE_CONCEPT_ID
-    type: long
-    nullable: true
+    type: integer
+    nullable: false
     metadata:
       description: ''
       mappings: []

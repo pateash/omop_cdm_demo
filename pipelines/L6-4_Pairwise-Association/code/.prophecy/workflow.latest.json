@@ -215,84 +215,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "XM3HtddVqt5AiPL9BvdMc$$9LjzN38i2oIAp2XemCUbp",
-          "slug" : "drug_era_overlap",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "drug_id1",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug_id2",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug1",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug2",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "d1_start",
-              "type" : "timestamp",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "d1_end",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "d2_start",
-              "type" : "timestamp",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "d2_end",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "drug_era_overlap"
         } ],
         "outputs" : [ {
           "id" : "v93MpAxOU6IQvMONjFDAh$$dcUBSwzPCRfZdnWvwGcjS",
@@ -362,16 +285,7 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "drug_era_id",
-              "type" : "integer",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "person_id",
+              "name" : "DRUG_ERA_ID",
               "type" : "long",
               "nullable" : true,
               "metadata" : {
@@ -380,7 +294,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "drug_concept_id",
+              "name" : "PERSON_ID",
               "type" : "long",
               "nullable" : true,
               "metadata" : {
@@ -389,8 +303,8 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "drug_era_start_datetime",
-              "type" : "timestamp",
+              "name" : "DRUG_CONCEPT_ID",
+              "type" : "long",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -398,7 +312,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "drug_era_end_datetime",
+              "name" : "DRUG_ERA_START_DATE",
               "type" : "date",
               "nullable" : true,
               "metadata" : {
@@ -407,7 +321,16 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "drug_exposure_count",
+              "name" : "DRUG_ERA_END_DATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DRUG_EXPOSURE_COUNT",
               "type" : "long",
               "nullable" : true,
               "metadata" : {
@@ -416,8 +339,8 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "gap_days",
-              "type" : "integer",
+              "name" : "GAP_DAYS",
+              "type" : "long",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -623,75 +546,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "nA9olS-oCCVVpPe6EM-SV$$9zmN_itmiRuYWfhADQ7yT",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "drug1",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug2",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "count_d1d2",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "supp_d1d2",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "supp_d2d1",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "supp_d1",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "supp_d2",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "in0"
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
@@ -718,39 +573,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "shztaMj-8FU4TSVH3_hMJ$$FXj6-orWB7-38dFp67z1x",
-          "slug" : "counts",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "drug1",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug2",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "count_d1d2",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "counts"
         } ],
         "outputs" : [ {
           "id" : "Kugp4D8SzR0u6Nwm7Q4tH$$92QJUArM2ImWxLMb55FB6",
@@ -791,39 +614,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "GQgre8T6zR3eDloT0FC1T$$kAOg0MJR1UN5cpAc6GvUW",
-          "slug" : "by_count_d1d2_asc",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "drug1",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug2",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "count_d1d2",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "by_count_d1d2_asc"
         } ],
         "outputs" : [ {
           "id" : "bx61XkUEOdrjhLOzl9bpv$$rYr2TRQhuYiF0coW9ZDHH",
@@ -903,110 +694,10 @@
       "ports" : {
         "inputs" : [ {
           "id" : "6aJmpnVXn-CvE71euarxQ$$jDFzumXU8YrmtZ5UYtKXh",
-          "slug" : "d1",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "PERSON_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_CONCEPT_NAME",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_ERA_START_DATE",
-              "type" : "timestamp",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_ERA_END_DATE",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "d1"
         }, {
           "id" : "_tv8iWJJ5IMNCz9jyjrmJ$$rIDXe3uMMiOdFQpvaqF1y",
-          "slug" : "d2",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "PERSON_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_CONCEPT_NAME",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_CONCEPT_ID",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_ERA_START_DATE",
-              "type" : "timestamp",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DRUG_ERA_END_DATE",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "d2"
         } ],
         "outputs" : [ {
           "id" : "Keqm0ztXXzV_AbMCa2cab$$asXw8yFgYNP5MJF2lP_4l",
@@ -1129,66 +820,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "IJ3yE9cEoKmKYgjNZSiZw$$MJ79MWAznCVqeluMDEuqw",
-          "slug" : "pairwise_sums",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "drug1",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "drug2",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "count_d1d2",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "sum_d1",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "sum_d2",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "sum_all",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
+          "slug" : "pairwise_sums"
         } ],
         "outputs" : [ {
           "id" : "H9FmjtNZ5U3OtumDVxkcp$$CJWAILA-kNXEcewOjs54x",
@@ -1266,5 +898,686 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.jYZxCkU1sb4Z5Ssx_UlKD$$uA1AFRZnE3z4-TLrtnz5R.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column drug_era.drug_era_start_datetime [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticFix" : {
+      "fixType" : "CopilotDiagnosticFix",
+      "copilotFixType" : "expression"
+    }
+  }, {
+    "property" : "$.workflow.processes.jYZxCkU1sb4Z5Ssx_UlKD$$uA1AFRZnE3z4-TLrtnz5R.properties.expressions[4].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column drug_era.drug_era_end_datetime [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticFix" : {
+      "fixType" : "CopilotDiagnosticFix",
+      "copilotFixType" : "expression"
+    }
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.DRUG_ERA_START_DATE [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.DRUG_ERA_END_DATE [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.DRUG_ERA_END_DATE [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.PERSON_ID [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.PERSON_ID [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.DRUG_ERA_START_DATE [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.DRUG_CONCEPT_ID [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[1].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.DRUG_CONCEPT_ID [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[2].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.DRUG_CONCEPT_NAME [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.DRUG_CONCEPT_NAME [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[4].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.DRUG_ERA_START_DATE [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[5].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d1.DRUG_ERA_END_DATE [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[6].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.DRUG_ERA_START_DATE [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.eJp06bKoKe535Xac4pLp2$$IZyJ3TaWWmUTLFRmXgKr_.properties.expressions[7].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column d2.DRUG_ERA_END_DATE [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.ze2E0h4ofn-JY_tx7LSJm$$Tqxuxa7WKMlgrQefDHdUz",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.hqbkNyxAei2hADvW3J5gK$$kRJI6vHaY35HA6qLk_huh",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.hqbkNyxAei2hADvW3J5gK$$kRJI6vHaY35HA6qLk_huh.properties.orders[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column count_d1d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.uyEUOVWg8oC3-h4AQEydW$$I5Tek9WYEwQsmkbmHTAFR",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.uyEUOVWg8oC3-h4AQEydW$$I5Tek9WYEwQsmkbmHTAFR.properties.expressions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column drug1",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.uyEUOVWg8oC3-h4AQEydW$$I5Tek9WYEwQsmkbmHTAFR.properties.expressions[1].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column drug2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.uyEUOVWg8oC3-h4AQEydW$$I5Tek9WYEwQsmkbmHTAFR.properties.expressions[2].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column count_d1d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.uyEUOVWg8oC3-h4AQEydW$$I5Tek9WYEwQsmkbmHTAFR.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column drug1",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.uyEUOVWg8oC3-h4AQEydW$$I5Tek9WYEwQsmkbmHTAFR.properties.expressions[4].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column drug2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column drug1",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[1].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column drug2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[2].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column count_d1d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column sum_d1",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column count_d1d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[4].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column count_d1d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[4].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column sum_d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[5].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column sum_d1",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[5].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column sum_all",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[6].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column sum_d2",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.-jYdlt0uwBlIv2sg8kg8g$$Tnr2FN0zb9lFgqilSJheV.properties.expressions[6].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "No match found for column sum_all",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.hU-FIuYwx_lWNy-j0haWx$$AByZI-v-0rZJtmGHMC7D6",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.jYZxCkU1sb4Z5Ssx_UlKD$$uA1AFRZnE3z4-TLrtnz5R.test.unitTests[0].data._6qAE83PRwBswN2ejhL16$$f1jnqbwOi8Uskc7JrfUob.schema.fields[0].name",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Column out.DRUG_CONCEPT_ID used within the test Unit Test  is not defined.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.jYZxCkU1sb4Z5Ssx_UlKD$$uA1AFRZnE3z4-TLrtnz5R.test.unitTests[0].data._6qAE83PRwBswN2ejhL16$$f1jnqbwOi8Uskc7JrfUob.schema.fields[1].name",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Column out.DRUG_CONCEPT_NAME used within the test Unit Test  is not defined.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.jYZxCkU1sb4Z5Ssx_UlKD$$uA1AFRZnE3z4-TLrtnz5R.test.unitTests[0].data._6qAE83PRwBswN2ejhL16$$f1jnqbwOi8Uskc7JrfUob.schema.fields[2].name",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Column out.PERSON_ID used within the test Unit Test  is not defined.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }
